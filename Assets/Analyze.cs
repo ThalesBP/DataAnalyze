@@ -42,7 +42,7 @@ public class Analyze : MonoBehaviour {
                 Vector2[] movements1;
                 Vector2[] borderLine1;
 
-                borderLine1 = new Vector2[360];
+                borderLine1 = new Vector2[36];
 
                 File.WriteAllText(Application.dataPath + "/" + playerName + " - BorderLine.txt", 
                     "Border Registred" + "\t" +
@@ -69,7 +69,33 @@ public class Analyze : MonoBehaviour {
                     Environment.NewLine +
                     Environment.NewLine
                     , Encoding.UTF8);
-                
+
+                File.WriteAllText(Application.dataPath + "/" + playerName + " - Movements.txt", 
+                    "", 
+                    Encoding.UTF8);
+                    
+                movementsText = File.ReadAllLines(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - Historic.txt", Encoding.UTF8);
+                Debug.Log("Historic Size: " + movementsText.Length);
+
+                for (int i = 2; i < movementsText.Length; i++)
+                {
+                    string[] testes = movementsText[i].Split(tab);
+                    if (File.Exists(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Movements.txt"))
+                    {
+                        string[] choiceLines = File.ReadAllLines(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Movements.txt", Encoding.UTF8);
+                        for (int j = 2; j < choiceLines.Length; j++)
+                        {
+                            File.AppendAllText(Application.dataPath + "/" + playerName + " - Movements.txt", 
+                                choiceLines[j] + 
+                                Environment.NewLine, Encoding.UTF8);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log(playerName + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Choices.txt was not found");
+                    }
+                }
+
                 movementsText = File.ReadAllLines(Application.dataPath + "/" + playerName + " - Movements.txt", Encoding.UTF8);
                 movements1 = new Vector2[movementsText.Length - 1];
                 min = max = center = bases = Vector2.zero;
@@ -134,11 +160,11 @@ public class Analyze : MonoBehaviour {
                     float ang = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
                     while (ang < 0f)
                         ang += 360f;
-                    int i_ang = Mathf.RoundToInt(ang);
-                    if (i_ang >= 360)
-                        i_ang -= 360;
+                    int i_ang = Mathf.RoundToInt(ang / 10f);
+                    if (i_ang >= 36)
+                        i_ang -= 36;
                     if (i_ang < 0)
-                        i_ang += 360;
+                        i_ang += 36;
 
                     polar = new Vector2(offset.magnitude, ang);
                     if (polar.x > borderLine1[i_ang].x)
@@ -153,8 +179,8 @@ public class Analyze : MonoBehaviour {
                         borderLine1[i].y + "\t" +
                         (borderLine1[i].x * Mathf.Cos(borderLine1[i].y * Mathf.Deg2Rad) + center.x) + "\t" +
                         (borderLine1[i].x * Mathf.Sin(borderLine1[i].y * Mathf.Deg2Rad) + center.y) + "\t" +
-                        (bases.x * Mathf.Cos(i * Mathf.Deg2Rad) + center.x) + "\t" +
-                        (bases.y * Mathf.Sin(i * Mathf.Deg2Rad) + center.y) + "\t" +
+                        (bases.x * Mathf.Cos(10f * i * Mathf.Deg2Rad) + center.x) + "\t" +
+                        (bases.y * Mathf.Sin(10f * i * Mathf.Deg2Rad) + center.y) + "\t" +
                         Environment.NewLine
                     , Encoding.UTF8);
                 break;

@@ -218,6 +218,7 @@
      <None Include="Assets\Choices\Mycael\Mycael - Pé direito - CountSuits - 5 - 17-11-09 16-19-04 - Movements.txt" />
      <None Include="Assets\Choices\Lucas\Lucas - Pé direito - Memory - 7 - 17-10-31 17-15-05 - Choices.txt" />
      <None Include="Assets\Choices\Gustavo\Gustavo - Pé direito - CountSuits - 4 - 17-10-31 09-55-28 - Choices.txt" />
+     <None Include="Assets\Leonardo - BorderLine.txt" />
      <None Include="Assets\Choices\Matheus\Matheus - Pé direito - Basic - 5 - 17-10-31 10-43-32 - GameMessage.txt" />
      <None Include="Assets\Choices\Tiago\Tiago - Pé direito - CountSuits - 3 - 17-11-10 14-16-58 - Choices.txt" />
      <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Basic - 4 - 17-10-31 15-49-36 - GameMessage.txt" />
@@ -281,6 +282,7 @@
      <None Include="Assets\Choices\Guilherme M\Guilherme M - Pé direito - Basic - 4 - 17-11-09 17-29-44 - GameMessage.txt" />
      <None Include="Assets\Choices\Ivan Perissini\Ivan Perissini - Pé direito - CountSuits - 8 - 17-10-31 14-06-53 - Choices.txt" />
      <None Include="Assets\Choices\Nilo\Nilo - Pé direito - Basic - 8 - 17-10-31 08-57-38 - GameMessage.txt" />
+     <None Include="Assets\Maiara - BorderLine.txt" />
      <None Include="Assets\Choices\Mycael\Mycael - Pé direito - Basic - 5 - 17-11-09 15-58-52 - Choices.txt" />
      <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - MultiSuits - 5 - 17-10-31 16-03-24 - Choices.txt" />
      <None Include="Assets\Choices\Viviane\Viviane - Pé direito - MultiSuits - 6 - 17-10-31 08-34-42 - GameMessage.txt" />
@@ -761,6 +763,7 @@
      <None Include="Assets\Choices\Nilo\Nilo - Pé direito - MultiSuits - 8 - 17-10-31 09-11-23 - Choices.txt" />
      <None Include="Assets\Choices\Mycael\Mycael - Pé direito - Memory - 7 - 17-11-09 16-08-06 - GameMessage.txt" />
      <None Include="Assets\Choices\Tiago\Tiago - Pé direito - CountSuits - 3 - 17-11-10 14-16-58 - GameMessage.txt" />
+     <None Include="Assets\Leonardo - Movements.txt" />
      <None Include="Assets\Choices\Nilo\Nilo - Pé direito - Basic - 8 - 17-10-31 08-57-38 - Movements.txt" />
      <None Include="Assets\Choices\Gustavo\Gustavo - Pé direito - CountSuits - 5 - 17-10-31 09-56-31 - Movements.txt" />
      <None Include="Assets\Choices\Leonardo\Leonardo - Pé esquerdo - Basic - 8 - 17-12-07 10-18-22 - Movements.txt" />
@@ -790,6 +793,7 @@
      <None Include="Assets\Choices\Guilherme M\Guilherme M - Pé direito - CountSuits - 6 - 17-11-09 17-51-19 - Movements.txt" />
      <None Include="Assets\Choices\Lucas\Lucas - Pé direito - MultiSuits - 6 - 17-10-31 17-20-23 - Choices.txt" />
      <None Include="Assets\Choices\Viviane\Viviane - Pé direito - Memory - 4 - 17-10-31 08-25-30 - Choices.txt" />
+     <None Include="Assets\Maiara - Movements.txt" />
      <None Include="Assets\Choices\Lucas\Lucas - Pé direito - CountSuits - 3 - 17-10-31 17-23-36 - Choices.txt" />
      <None Include="Assets\Choices\Matheus\Matheus - Pé direito - Memory - 8 - 17-10-31 10-54-18 - GameMessage.txt" />
      <None Include="Assets\Choices\Tiago\Tiago - Pé direito - Memory - 7 - 17-11-10 14-08-26 - Movements.txt" />
