@@ -631,10 +631,12 @@ public class Analyze : MonoBehaviour {
                 }
 
                 foreach (Choice player in choices)
+                {
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePathsNormalized.txt", 
                         ""
                         , Encoding.UTF8);
-
+                    player.StartNorm();
+                }
                 running = true;
                 currentLine = "";
                 timeStepAux = 0;
@@ -646,26 +648,33 @@ public class Analyze : MonoBehaviour {
                     {
                         currentLine = timeStepAux.ToString() + "\t";
 
-                        for (int nChoice = 0; nChoice < player.movementPos.Count; nChoice++)
+                        if (timeStepAux < player.maxMove)
+                            for (int nChoice = 0; nChoice < player.movementPos.Count; nChoice++)
                             //                        foreach (Vector2[] choicePath in player.movementPos)
-                        {
-                            if (timeStepAux < player.movementPos[nChoice].Length)
                             {
-                                running = true;
-                                try {
-                                    currentLine = currentLine + ((player.movementTime[nChoice][timeStepAux] - player.movementTime[nChoice][player.reaction[nChoice]]) / (player.movementTime[nChoice][player.motion[nChoice]] - player.movementTime[nChoice][player.reaction[nChoice]])) + "\t";
-                                    currentLine = currentLine + ((player.movementPos[nChoice][timeStepAux].x - player.movementPos[nChoice][0].x) / (player.movementPos[nChoice][player.movementPos[nChoice].Length - 1].x - player.movementPos[nChoice][0].x)) + "\t";
+                                if (timeStepAux < player.movementPos[nChoice].Length)
+                                {   
+                                    running = true;
+                                    try 
+                                    {
+                                        float timeAux = ((player.movementTime[nChoice][timeStepAux] - player.movementTime[nChoice][player.reaction[nChoice]]) / (player.movementTime[nChoice][player.motion[nChoice]] - player.movementTime[nChoice][player.reaction[nChoice]]));
+                                        float posAux = ((player.movementPos[nChoice][timeStepAux].x - player.movementPos[nChoice][0].x) / (player.movementPos[nChoice][player.movementPos[nChoice].Length - 1].x - player.movementPos[nChoice][0].x));
+
+                                        currentLine = currentLine + timeAux + "\t";
+                                        currentLine = currentLine + posAux + "\t";
+
+                                        player.AddNorm(timeAux, new Vector2(posAux, 0f), nChoice);
+                                    }
+                                    catch
+                                    {
+                                        Debug.Log("Player Movement Time Count = " + player.movementTime.Count + " > NChoice = " + nChoice);
+                                        Debug.Log("time[nChoice] Lengh = " + player.movementTime[nChoice].Length + " > TimeStepAux = " + timeStepAux + " and Reaction = " + player.reaction[nChoice] + " and Motion =" + player.motion[nChoice]);
+                                        Debug.Log("nChoice = " + nChoice + " < Reaction.Count = " + player.reaction.Count + " and Motion.Count = " + player.motion.Count);
+                                    }
                                 }
-                                catch
-                                {
-                                    Debug.Log("Player Movement Time Count = " + player.movementTime.Count + " > NChoice = " + nChoice);
-                                    Debug.Log("time[nChoice] Lengh = " + player.movementTime[nChoice].Length + " > TimeStepAux = " + timeStepAux + " and Reaction = " + player.reaction[nChoice] + " and Motion =" + player.motion[nChoice]);
-                                    Debug.Log("nChoice = " + nChoice + " < Reaction.Count = " + player.reaction.Count + " and Motion.Count = " + player.motion.Count);
-                                }
+                                else
+                                    currentLine = currentLine + "\t\t";
                             }
-                            else
-                                currentLine = currentLine + "\t\t";
-                        }
 
                         File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePathsNormalized.txt", 
                             currentLine +
@@ -673,6 +682,29 @@ public class Analyze : MonoBehaviour {
                             , Encoding.UTF8);
                     }
                     timeStepAux++;
+                }
+
+                foreach (Choice player in choices)
+                {
+                    File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - AveragePath.txt", 
+                        ""
+                        , Encoding.UTF8);
+                    player.FitNorm();
+                }
+                for (int iTime = 0; iTime <= 20; iTime ++)
+                {
+                    foreach (Choice player in choices)
+                    {
+                        currentLine = iTime + "\t" + player.moveTimeNorm[iTime] + "\t";
+                        for (int iChoice = 0; iChoice < player.movementTime.Count; iChoice++)
+                        {
+                            currentLine = currentLine + player.movePosNorm[iChoice][iTime].x + "\t";
+                        }
+                        File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - AveragePath.txt", 
+                            currentLine +
+                            Environment.NewLine
+                            , Encoding.UTF8);
+                    }
                 }
                 break;
             #endregion

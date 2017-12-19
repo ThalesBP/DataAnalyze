@@ -22,6 +22,12 @@ public class Choice {
     public List<Vector2[]> movementPos;
     public List<int> reaction, motion, chosen;
 
+    public int elemNorm = 20;
+    public float[] moveTimeNorm;
+    public int[][] moveCountNorm;
+    public Vector2[][] movePosNorm;
+
+    public int maxMove;
     public float maxStartMag, minEndMag;
 
     public Choice (string name)
@@ -54,6 +60,12 @@ public class Choice {
 
         maxStartMag = 0f;
         minEndMag = float.PositiveInfinity;
+
+        moveTimeNorm = new float[elemNorm + 1];
+        for (int i = 0; i <= elemNorm; i++)
+        {
+            moveTimeNorm[i] = (float)i / (float)elemNorm;
+        }
     }
 
     public void Add(string[] line)
@@ -98,6 +110,9 @@ public class Choice {
 
     public void Add(float[] times, Vector2[] movements, int index0, int index1)
     {
+        if (index1 - index0 > maxMove)
+            maxMove = index1 - index0;
+
         float[] timesAux = new float[index1 - index0];
         Vector2[] movementsAux = new Vector2[index1 - index0];
 
@@ -132,6 +147,57 @@ public class Choice {
             motion.Add(mot);
     
         chosen.Add(chos);
+    }
+
+    public void StartNorm()
+    {
+        movePosNorm = new Vector2[nChoice.Count][];
+        moveCountNorm = new int[nChoice.Count][];
+        for (int i = 0; i < nChoice.Count; i++)
+        {
+            movePosNorm[i] = new Vector2[elemNorm + 1];
+            moveCountNorm[i] = new int[elemNorm + 1];
+            for (int j = 0; j <= elemNorm; j++)
+            {
+                movePosNorm[i][j] = Vector2.zero;
+                moveCountNorm[i][j] = 0;
+            }
+        }
+    }
+
+    public void AddNorm(float timeNorm, Vector2 posNorm, int iChoice)
+    {
+        int index = Mathf.RoundToInt(timeNorm * elemNorm);
+
+        if ((index >= 0) && (index <= elemNorm))
+        {
+            movePosNorm[iChoice][index] = (movePosNorm[iChoice][index] * (float)moveCountNorm[iChoice][index] + posNorm) / (float)(moveCountNorm[iChoice][index] + 1);
+            moveCountNorm[iChoice][index]++;
+        }
+    }
+
+    public void FitNorm()
+    {
+        for (int i = 0; i < nChoice.Count; i++)
+        {
+            Vector2 elemBefore = Vector2.zero;
+            for (int j = 0; j <= elemNorm; j++)
+            {
+                int indexAux = 0;
+                while (moveCountNorm[i][j + indexAux] == 0)
+                {
+                    if (j + indexAux + 1 == moveCountNorm[i].Length)
+                        break;
+                    
+                    indexAux++;
+                }
+                for (int k = 0; k < indexAux; k++)
+                {
+                    movePosNorm[i][j] = elemBefore + (float) (k + 1) * (movePosNorm[i][j + indexAux] - elemBefore) / (float)(indexAux + 1);
+                }
+                elemBefore = movePosNorm[i][j];
+            }
+        }
     }
 
     /// <summary>
