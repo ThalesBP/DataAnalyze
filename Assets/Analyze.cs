@@ -569,19 +569,26 @@ public class Analyze : MonoBehaviour {
 
                 bool running = true;
                 string currentLine = "";
+                string currentLine2 = "";
                 int timeStepAux = 0;
 
                 foreach (Choice player in choices)
+                {
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePaths.txt", 
                         ""
                         , Encoding.UTF8);
-                    
+                    File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoiceAngle.txt", 
+                        ""
+                        , Encoding.UTF8);
+                }
+
                 while (running)
                 {
                     running = false;
                     foreach (Choice player in choices)
                     {
                         currentLine = timeStepAux.ToString() + "\t";
+                        currentLine2 = timeStepAux.ToString() + "\t";
 
                         for (int nChoice = 0; nChoice < player.movementPos.Count; nChoice++)
 //                        foreach (Vector2[] choicePath in player.movementPos)
@@ -590,13 +597,21 @@ public class Analyze : MonoBehaviour {
                             {
                                 running = true;
                                 currentLine = currentLine + (player.movementPos[nChoice][timeStepAux].x) + "\t";
+                                currentLine2 = currentLine2 + (player.movementPos[nChoice][timeStepAux].y) + "\t";
                             }
                             else
+                            {
                                 currentLine = currentLine + "\t";
+                                currentLine2 = currentLine2 + "\t";
+                            }
                         }
 
                         File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePaths.txt", 
                             currentLine +
+                            Environment.NewLine
+                            , Encoding.UTF8);
+                        File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoiceAngle.txt", 
+                            currentLine2 +
                             Environment.NewLine
                             , Encoding.UTF8);
                     }
@@ -635,10 +650,14 @@ public class Analyze : MonoBehaviour {
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePathsNormalized.txt", 
                         ""
                         , Encoding.UTF8);
+                    File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoiceAngleNormalized.txt", 
+                        ""
+                        , Encoding.UTF8);
                     player.StartNorm();
                 }
                 running = true;
                 currentLine = "";
+                currentLine2 = "";
                 timeStepAux = 0;
 
                 while (running)
@@ -647,6 +666,7 @@ public class Analyze : MonoBehaviour {
                     foreach (Choice player in choices)
                     {
                         currentLine = timeStepAux.ToString() + "\t";
+                        currentLine2 = timeStepAux.ToString() + "\t";
 
                         if (timeStepAux < player.maxMove)
                             for (int nChoice = 0; nChoice < player.movementPos.Count; nChoice++)
@@ -659,11 +679,15 @@ public class Analyze : MonoBehaviour {
                                     {
                                         float timeAux = ((player.movementTime[nChoice][timeStepAux] - player.movementTime[nChoice][player.reaction[nChoice]]) / (player.movementTime[nChoice][player.motion[nChoice]] - player.movementTime[nChoice][player.reaction[nChoice]]));
                                         float posAux = ((player.movementPos[nChoice][timeStepAux].x - player.movementPos[nChoice][0].x) / (player.movementPos[nChoice][player.movementPos[nChoice].Length - 1].x - player.movementPos[nChoice][0].x));
+                                        float angAux = (Mathf.DeltaAngle(player.movementPos[nChoice][timeStepAux].y, player.movementPos[nChoice][player.movementPos[nChoice].Length - 1].y) / 180f);
 
                                         currentLine = currentLine + timeAux + "\t";
                                         currentLine = currentLine + posAux + "\t";
+                                        currentLine2 = currentLine2 + timeAux + "\t";
+                                        currentLine2 = currentLine2 + angAux + "\t";
 
-                                        player.AddNorm(timeAux, new Vector2(posAux, 0f), nChoice);
+
+                                        player.AddNorm(timeAux, new Vector2(posAux, angAux), nChoice);
                                     }
                                     catch
                                     {
@@ -673,11 +697,18 @@ public class Analyze : MonoBehaviour {
                                     }
                                 }
                                 else
+                                {
                                     currentLine = currentLine + "\t\t";
+                                    currentLine2 = currentLine2 + "\t\t";
+                                }
                             }
 
                         File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePathsNormalized.txt", 
                             currentLine +
+                            Environment.NewLine
+                            , Encoding.UTF8);
+                        File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoiceAngleNormalized.txt", 
+                            currentLine2 +
                             Environment.NewLine
                             , Encoding.UTF8);
                     }
@@ -689,6 +720,9 @@ public class Analyze : MonoBehaviour {
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - AveragePath.txt", 
                         ""
                         , Encoding.UTF8);
+                    File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - AverageAngle.txt", 
+                        ""
+                        , Encoding.UTF8);
                     player.FitNorm();
                 }
                 for (int iTime = 0; iTime <= 20; iTime ++)
@@ -696,12 +730,18 @@ public class Analyze : MonoBehaviour {
                     foreach (Choice player in choices)
                     {
                         currentLine = iTime + "\t" + player.moveTimeNorm[iTime] + "\t";
+                        currentLine2 = iTime + "\t" + player.moveTimeNorm[iTime] + "\t";
                         for (int iChoice = 0; iChoice < player.movementTime.Count; iChoice++)
                         {
                             currentLine = currentLine + player.movePosNorm[iChoice][iTime].x + "\t";
+                            currentLine2 = currentLine2 + player.movePosNorm[iChoice][iTime].y + "\t";
                         }
                         File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - AveragePath.txt", 
                             currentLine +
+                            Environment.NewLine
+                            , Encoding.UTF8);
+                        File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - AverageAngle.txt", 
+                            currentLine2 +
                             Environment.NewLine
                             , Encoding.UTF8);
                     }
@@ -709,7 +749,6 @@ public class Analyze : MonoBehaviour {
                 break;
             #endregion
         }
-
 	}
 	
 	// Update is called once per frame

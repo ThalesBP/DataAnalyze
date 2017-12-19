@@ -122,7 +122,7 @@ public class Choice {
 
             Vector2 pos;
             pos = movements[index0 + i] - movements[index0];
-            movementsAux[i] = new Vector2(pos.magnitude, Mathf.Atan2(pos.y, pos.x));
+            movementsAux[i] = new Vector2(pos.magnitude, Mathf.Rad2Deg * Mathf.Atan2(pos.y, pos.x));
         }
         movementTime.Add(timesAux);
         movementPos.Add(movementsAux);
