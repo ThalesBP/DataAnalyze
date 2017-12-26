@@ -30,6 +30,12 @@ public class Choice {
     public int maxMove;
     public float maxStartMag, minEndMag;
 
+    public int[][][] countTime = new int[4][][];
+    public Vector3[] minTime = new Vector3[4];
+    public Vector3[] maxTime = new Vector3[4];
+
+    public float[] ACER = new float[7];
+
     public Choice (string name)
     {
         playerName = name;
@@ -66,32 +72,101 @@ public class Choice {
         {
             moveTimeNorm[i] = (float)i / (float)elemNorm;
         }
+
+        for (int i = 0; i < 4; i++)
+        {
+            minTime[i] = Vector3.one * float.MaxValue;
+            maxTime[i] = Vector3.zero;
+            countTime[i] = new int[3][];
+        }
     }
+
+    public Choice (string[] name)
+    {
+        playerName = name[0];
+        for (int i = 1; i < name.Length; i++)
+        {
+            ACER[i - 1] = float.Parse(name[i]);
+        }
+
+        nChoice = new List<int>();
+        nCards = new List<int>();
+        gameMode = new List<int>();
+        time = new List<float>();
+        speed = new List<float>();
+        turnTime = new List<float>();
+        choiceChanged = new List<float>();
+        match = new List<bool>();
+        choicePos = new List<Vector2>();
+        objectivePos = new List<Vector2>();
+        timeToDo = new List<Vector3>();
+        choice = new List<Card>();
+        objective = new List<Card>();
+        cardMatch = new List<Card>();
+        package = new float[36];
+        elipse = new float[36];
+        averageTime = new float[36];
+        nMistake = new int[36];
+
+        movementTime = new List<float[]>();
+        movementPos = new List<Vector2[]>();
+        reaction = new List<int>();
+        motion = new List<int>();
+        chosen = new List<int>();
+
+        maxStartMag = 0f;
+        minEndMag = float.PositiveInfinity;
+
+        moveTimeNorm = new float[elemNorm + 1];
+        for (int i = 0; i <= elemNorm; i++)
+        {
+            moveTimeNorm[i] = (float)i / (float)elemNorm;
+        }
+
+        for (int i = 0; i < 24; i++)
+        {
+            minTime[i] = Vector3.one * float.MaxValue;
+            maxTime[i] = Vector3.zero;
+        }
+    }
+
+
 
     public void Add(string[] line)
     {
+        int modeAux, nCardAux;
+        Vector3 timeToDoAux;
+
         nChoice.Add(int.Parse(line[0]));
         time.Add(float.Parse(line[1]));
+
         switch (line[2])
         {
             case "Basic":
                 gameMode.Add(0);
+                modeAux = 0;
                 break;
             case "Memory":
                 gameMode.Add(1);
+                modeAux = 1;
                 break;
             case "MultiSuits":
                 gameMode.Add(2);
+                modeAux = 2;
                 break;
             case "CountSuits":
                 gameMode.Add(3);
+                modeAux = 3;
                 break;
             default:
                 gameMode.Add(0);
+                modeAux = 0;
                 Debug.Log("Game mode error - " + line[2] + " - " + playerName);
                 break;
         }
+
         speed.Add(float.Parse(line[3]));
+        nCardAux = int.Parse(line[4]);
         nCards.Add(int.Parse(line[4]));
         if (int.Parse(line[5]) == 1)
             match.Add(true);
@@ -103,7 +178,19 @@ public class Choice {
         objective.Add(new Card(line[9], line[10], line[11]));
         choice.Add(new Card(line[12], line[13], line[14]));
         cardMatch.Add(new Card(line[15], line[16], line[17]));
-        timeToDo.Add(new Vector3(float.Parse(line[19]), float.Parse(line[20]), float.Parse(line[21])));
+
+        timeToDoAux = new Vector3(float.Parse(line[19]) - 1.25f / float.Parse(line[3]), float.Parse(line[20]) - 1.25f / float.Parse(line[3]), float.Parse(line[21]));
+        for (int i = 0; i < 3; i++)
+        {
+            if (timeToDoAux[i] < 0f)
+                timeToDoAux[i] = 0f;
+            if (timeToDoAux[i] > maxTime[modeAux][i]) // * 6 + nCardAux - 3][i])
+                maxTime[modeAux/* * 6 + nCardAux - 3*/][i] = timeToDoAux[i];
+            if (timeToDoAux[i] < minTime[modeAux][i]) // * 6 + nCardAux - 3][i])
+                minTime[modeAux/* * 6 + nCardAux - 3*/][i] = timeToDoAux[i];
+        }
+        timeToDo.Add(timeToDoAux);
+
         objectivePos.Add(new Vector2(float.Parse(line[22]), float.Parse(line[23])));
         choicePos.Add(new Vector2(float.Parse(line[24]), float.Parse(line[25])));
     }
@@ -318,10 +405,48 @@ public class Choice {
         }
         return aux;
     }
+
+    public void CountTimeStart(int nSlice)
+    {
+        for (int i = 0; i < countTime.Length; i++)
+        {
+            for (int j = 0; j < countTime[i].Length; j++)
+                countTime[i][j] = new int[nSlice];
+        }
+    }
+
+    public void AddCountTime(float time, int mode, int toDo)
+    {
+        if (maxTime[mode][toDo] != minTime[mode][toDo])
+        {
+            float portion = (time - minTime[mode][toDo]) / (maxTime[mode][toDo] - minTime[mode][toDo]);
+            int index;
+            if (portion < 1)
+            {
+                index = Mathf.FloorToInt(portion * countTime[mode][toDo].Length);
+                if (index < 0)
+                {
+                    Debug.Log("Mode " + mode + ", intex " + toDo + ", timeStep " + index);
+                    index = 0;
+                }
+            }
+            else
+                index = countTime[mode][toDo].Length - 1;
+
+            try
+            {
+                countTime[mode][toDo][index]++;
+            }
+            catch
+            {
+                Debug.Log("Mode " + mode + ", intex " + toDo + ", timeStep " + index);
+            }
+        }
+    }
 }
 
 public class Card {
-    int value, suit, color;
+    public int value, suit, color;
 
     public Card (string v, string s, string c)
     {
