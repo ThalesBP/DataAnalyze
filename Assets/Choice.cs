@@ -20,7 +20,7 @@ public class Choice {
 
     public List<float[]> movementTime;
     public List<Vector2[]> movementPos;
-    public List<int> reaction, motion, chosen;
+    public List<int> reaction, motion;
 
     public int elemNorm = 20;
     public float[] moveTimeNorm;
@@ -30,9 +30,12 @@ public class Choice {
     public int maxMove;
     public float maxStartMag, minEndMag;
 
-    public int[][][] countTime = new int[4][][];
-    public Vector3[] minTime = new Vector3[4];
-    public Vector3[] maxTime = new Vector3[4];
+    public int[][][] countTime = new int[24][][];
+    public Vector3[] minTime = new Vector3[24];
+    public Vector3[] maxTime = new Vector3[24];
+
+    public Vector3[][] minTimes = new Vector3[24][];
+    public Vector3[][] maxTimes = new Vector3[24][];
 
     public float[] ACER = new float[7];
 
@@ -62,7 +65,6 @@ public class Choice {
         movementPos = new List<Vector2[]>();
         reaction = new List<int>();
         motion = new List<int>();
-        chosen = new List<int>();
 
         maxStartMag = 0f;
         minEndMag = float.PositiveInfinity;
@@ -73,7 +75,7 @@ public class Choice {
             moveTimeNorm[i] = (float)i / (float)elemNorm;
         }
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 24; i++)
         {
             minTime[i] = Vector3.one * float.MaxValue;
             maxTime[i] = Vector3.zero;
@@ -112,7 +114,6 @@ public class Choice {
         movementPos = new List<Vector2[]>();
         reaction = new List<int>();
         motion = new List<int>();
-        chosen = new List<int>();
 
         maxStartMag = 0f;
         minEndMag = float.PositiveInfinity;
@@ -184,10 +185,10 @@ public class Choice {
         {
             if (timeToDoAux[i] < 0f)
                 timeToDoAux[i] = 0f;
-            if (timeToDoAux[i] > maxTime[modeAux][i]) // * 6 + nCardAux - 3][i])
-                maxTime[modeAux/* * 6 + nCardAux - 3*/][i] = timeToDoAux[i];
-            if (timeToDoAux[i] < minTime[modeAux][i]) // * 6 + nCardAux - 3][i])
-                minTime[modeAux/* * 6 + nCardAux - 3*/][i] = timeToDoAux[i];
+            if (timeToDoAux[i] > maxTime[modeAux * 6 + nCardAux - 3][i])
+                maxTime[modeAux * 6 + nCardAux - 3][i] = timeToDoAux[i];
+            if (timeToDoAux[i] < minTime[modeAux * 6 + nCardAux - 3][i])
+                minTime[modeAux * 6 + nCardAux - 3][i] = timeToDoAux[i];
         }
         timeToDo.Add(timeToDoAux);
 
@@ -221,7 +222,7 @@ public class Choice {
     /// <param name="reac">Reaction.</param>
     /// <param name="mot">Motion.</param>
     /// <param name="chos">Chosen.</param>
-    public void Add(int reac, int mot, int chos)
+    public void Add(int reac, int mot)
     {
         if (reac < 0)
             reaction.Add(0);
@@ -232,8 +233,6 @@ public class Choice {
             motion.Add(reac);
         else
             motion.Add(mot);
-    
-        chosen.Add(chos);
     }
 
     public void StartNorm()
@@ -440,6 +439,50 @@ public class Choice {
             catch
             {
                 Debug.Log("Mode " + mode + ", intex " + toDo + ", timeStep " + index);
+            }
+        }
+    }
+
+    public void StartXTimes(int n)
+    {
+        for (int i = 0; i < minTimes.Length; i++)
+        {
+            minTimes[i] = new Vector3[n];
+            maxTimes[i] = new Vector3[n];
+            for (int j = 0; j < n; j++)
+            {
+                minTimes[i][j] = float.MaxValue;
+                maxTimes[i][j] = float.MinValue;
+            }
+        }
+    }
+
+    public void AddXTimes(float num, int mode)
+    {
+        int i = 0;
+        while (i < minTimes[mode].Length)
+        {
+            if (num < minTimes[mode][i])
+            {
+                for (int j = minTimes[mode].Length - 1; j > i; j--)
+                {
+                    minTimes[mode][j] = minTimes[mode][j - 1];
+                }
+                minTimes[mode][i] = num;
+                break;
+            }
+        }
+        i = 0;
+        while (i < maxTimes[mode].Length)
+        {
+            if (num > maxTimes[mode][i])
+            {
+                for (int j = minTimes[mode].Length - 1; j > i; j--)
+                {
+                    maxTimes[mode][j] = maxTimes[mode][j - 1];
+                }
+                maxTimes[mode][i] = num;
+                break;
             }
         }
     }
