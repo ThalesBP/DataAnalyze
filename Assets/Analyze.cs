@@ -8,7 +8,7 @@ using System.Text;
 
 public class Analyze : MonoBehaviour {
 
-    public enum Modes {Person, Package, RadialChoices, MergeChoices, ChoicePath, TimesToDo, AverageTimes, ReactionTime};
+    public enum Modes {Person, Package, RadialChoices, MergeChoices, ChoicePath, TimesToDo, AverageTimes, ReactionTime, BorderLines};
     public Modes mode;
 
     public string playerName;
@@ -363,6 +363,7 @@ public class Analyze : MonoBehaviour {
                         player.package[i] = borderLine3[i].x;
                         player.elipse[i] = (new Vector2(bases.x * Mathf.Cos(10f* i * Mathf.Deg2Rad), bases.y * Mathf.Sin(10f * i * Mathf.Deg2Rad))).magnitude;
                     }
+                    player.RadialProfile();
                 }
 
                 string lineText = "\t";
@@ -568,13 +569,32 @@ public class Analyze : MonoBehaviour {
                                 //endTime -=  1.25f / choices[lastPlayer].speed[lastChoice];
                                 startTime = endTime - (1.25f / choices[lastPlayer].speed[lastChoice] + choices[lastPlayer].timeToDo[lastChoice].z);
 
+                                string linePath = "";
+                                string lineAngle = "";
+                                int index0_aux = index0;
+
                                 while ((movementTime[index1] < endTime) && (index1 != movementTime.Length - 1))
                                 {
                                     if (movementTime[index0] < startTime)
                                         index0++;
                                     index1++;
+
+                                }
+                                /*
+                                for (int i = index0_aux; i < index1; i++)
+                                {
+                                    linePath = linePath + (movementPos[i] - movementPos[index0]).magnitude + "\t";
+                                    lineAngle = lineAngle + Mathf.Atan2((movementPos[i] - movementPos[index0]).y, (movementPos[i] - movementPos[index0]).x) + "\t";
                                 }
 
+                                File.AppendAllText(Application.dataPath + "/Choices/" + player + " - TurnPath.txt", 
+                                    linePath +
+                                    Environment.NewLine, Encoding.UTF8);
+
+                                File.AppendAllText(Application.dataPath + "/Choices/" + player + " - TurnAngle.txt", 
+                                    lineAngle +
+                                    Environment.NewLine, Encoding.UTF8);*/
+                                
                                 if (index0 != index1)
                                 {
                                     choices[lastPlayer].Add(movementTime, movementPos, index0, index1);
@@ -600,6 +620,15 @@ public class Analyze : MonoBehaviour {
 
                 foreach (Choice player in choices)
                 {
+
+                    // Para implementar cabećalho
+     /*               for (int nChoice = 0; nChoice < player.movementPos.Count; nChoice++)
+                        //                        foreach (Vector2[] choicePath in player.movementPos)
+                    {
+                        currentLine = currentLine + (player.movementPos[nChoice][timeStepAux].x) + "\t";
+                        currentLine2 = currentLine2 + (player.movementPos[nChoice][timeStepAux].y) + "\t";
+                    }*/
+
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicePaths.txt", 
                         ""
                         , Encoding.UTF8);
@@ -622,7 +651,7 @@ public class Analyze : MonoBehaviour {
                             if (timeStepAux < player.movementPos[nChoice].Length)
                             {
                                 running = true;
-                                currentLine = currentLine + (player.movementPos[nChoice][timeStepAux].x) + "\t";
+                                currentLine = currentLine + (player.movementPos[nChoice][timeStepAux].x * Mathf.Rad2Deg) + "\t";
                                 currentLine2 = currentLine2 + (player.movementPos[nChoice][timeStepAux].y) + "\t";
                             }
                             else
@@ -705,7 +734,7 @@ public class Analyze : MonoBehaviour {
                                     {
                                         float timeAux = ((player.movementTime[nChoice][timeStepAux] - player.movementTime[nChoice][player.reaction[nChoice]]) / (player.movementTime[nChoice][player.motion[nChoice]] - player.movementTime[nChoice][player.reaction[nChoice]]));
                                         float posAux = ((player.movementPos[nChoice][timeStepAux].x - player.movementPos[nChoice][0].x) / (player.movementPos[nChoice][player.movementPos[nChoice].Length - 1].x - player.movementPos[nChoice][0].x));
-                                        float angAux = (Mathf.DeltaAngle(player.movementPos[nChoice][timeStepAux].y, player.movementPos[nChoice][player.movementPos[nChoice].Length - 1].y) / 180f);
+                                        float angAux = posAux*Mathf.Sin(Mathf.Deg2Rad*Mathf.DeltaAngle(player.movementPos[nChoice][timeStepAux].y, player.movementPos[nChoice][player.motion[nChoice]].y));// / 180f); //player.motion[nChoice] | player.movementPos[nChoice].Length - 1
 
                                         currentLine = currentLine + timeAux + "\t";
                                         currentLine = currentLine + posAux + "\t";
@@ -741,6 +770,10 @@ public class Analyze : MonoBehaviour {
                     timeStepAux++;
                 }
 
+                File.WriteAllText(Application.dataPath + "/Choices/AllAverageAngle.txt", 
+                    ""
+                    , Encoding.UTF8);
+
                 foreach (Choice player in choices)
                 {
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - AveragePath.txt", 
@@ -751,9 +784,9 @@ public class Analyze : MonoBehaviour {
                         , Encoding.UTF8);
                     player.FitNorm();
                 }
-                for (int iTime = 0; iTime <= 20; iTime ++)
+                foreach (Choice player in choices)
                 {
-                    foreach (Choice player in choices)
+                    for (int iTime = 0; iTime <= Choice.elemNorm; iTime ++)
                     {
                         currentLine = iTime + "\t" + player.moveTimeNorm[iTime] + "\t";
                         currentLine2 = iTime + "\t" + player.moveTimeNorm[iTime] + "\t";
@@ -767,6 +800,11 @@ public class Analyze : MonoBehaviour {
                             Environment.NewLine
                             , Encoding.UTF8);
                         File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - AverageAngle.txt", 
+                            currentLine2 +
+                            Environment.NewLine
+                            , Encoding.UTF8);
+
+                        File.AppendAllText(Application.dataPath + "/Choices/AllAverageAngle.txt", 
                             currentLine2 +
                             Environment.NewLine
                             , Encoding.UTF8);
@@ -1363,6 +1401,7 @@ public class Analyze : MonoBehaviour {
                 }
 
                 File.WriteAllText(Application.dataPath + "/Choices/AllChoicesWithReaction.txt",
+                    "ID\t" + 
                     "Name\t" +
                     "Choice\t" + 
                     "Time Start\t" +
@@ -1393,7 +1432,60 @@ public class Analyze : MonoBehaviour {
                     "Choice Ang\t" +
                     Environment.NewLine, Encoding.UTF8);
 
+                string namesAux = "";
+                foreach (String[] plr in playerNamesACER)
+                {
+                    if (namesAux == "")
+                        namesAux = namesAux + plr[0].Replace(" ", string.Empty);
+                    else
+                        namesAux = namesAux + "," + plr[0].Replace(" ", string.Empty);
+                }
+
+                File.WriteAllText(Application.dataPath + "/Choices/AllChoicesWithReaction.arff",
+                    "@RELATION AllChoicesWithReaction" + Environment.NewLine +
+                    Environment.NewLine +
+                    "@ATTRIBUTE ID REAL" + Environment.NewLine + 
+                    "@ATTRIBUTE Name {" + namesAux + "}" + Environment.NewLine +
+                    "@ATTRIBUTE Choice REAL" + Environment.NewLine +
+                    "@ATTRIBUTE TimeStart REAL" + Environment.NewLine +
+                    "@ATTRIBUTE RectionTime REAL" + Environment.NewLine +
+                    "@ATTRIBUTE MotionTime REAL" + Environment.NewLine +
+                    "@ATTRIBUTE EndTurn REAL" + Environment.NewLine +
+                    "@ATTRIBUTE Mode {0,1,2,3}" + Environment.NewLine +
+                    "@ATTRIBUTE GameSpeed REAL" + Environment.NewLine +
+                    "@ATTRIBUTE NCards REAL" + Environment.NewLine +
+                    "@ATTRIBUTE Match REAL" + Environment.NewLine +
+                    "@ATTRIBUTE TurnTime REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ChoiceChanged REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ObjectiveValue REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ObjectiveSuit REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ObjectiveColor REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ChoiceValue REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ChoiceSuit REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ChoiceColor REAL" + Environment.NewLine +
+                    "@ATTRIBUTE MatchValue REAL" + Environment.NewLine +
+                    "@ATTRIBUTE MatchSuit REAL" + Environment.NewLine +
+                    "@ATTRIBUTE MatchColor REAL" + Environment.NewLine +
+                    "@ATTRIBUTE TimeToPlay REAL" + Environment.NewLine +
+                    "@ATTRIBUTE TimeToMemorize REAL" + Environment.NewLine +
+                    "@ATTRIBUTE TimeToChoose REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ObjectiveMag REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ObjectiveAng REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ChoiceMag REAL" + Environment.NewLine +
+                    "@ATTRIBUTE ChoiceAng REAL" + Environment.NewLine +
+                    "@ATTRIBUTE meem-30 REAL" + Environment.NewLine +
+                    "@ATTRIBUTE acer-100 REAL" + Environment.NewLine +
+                    "@ATTRIBUTE atençaoeorientação-18 REAL" + Environment.NewLine +
+                    "@ATTRIBUTE memória-26 REAL" + Environment.NewLine +
+                    "@ATTRIBUTE fluência-14 REAL" + Environment.NewLine +
+                    "@ATTRIBUTE linguagem-26 REAL" + Environment.NewLine +
+                    "@ATTRIBUTE visual-espacial-16 REAL" + Environment.NewLine +
+                    Environment.NewLine +
+                    "@DATA" +
+                    Environment.NewLine, Encoding.Default);
+
                 File.WriteAllText(Application.dataPath + "/Choices/AverageTimesWithReaction.txt", 
+                    "ID \t" +
                     "Name \t" +
                     "Mode \t" +
                     "N Cards \t" +
@@ -1414,6 +1506,8 @@ public class Analyze : MonoBehaviour {
                     "Dev Time to Choose \t" +
                     "Min Time to Choose \t" +
                     "Max Time to Choose \t" +
+                    "GameFamiliarity \t" +
+                    "CardFamiliarity \t" +
                     "MEEM-30 \t" +
                     "ACER-100 \t" + 
                     "Atençao-Orientacao-18 \t" +
@@ -1428,6 +1522,7 @@ public class Analyze : MonoBehaviour {
                 {
 
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicesWithReaction.txt",
+                        "ID\t" +
                         "Name\t" +
                         "Choice\t" + 
                         "Time Start\t" +
@@ -1483,10 +1578,50 @@ public class Analyze : MonoBehaviour {
                         averageRection[i] = Vector2.zero;
                         devReaction[i] = Vector2.zero;
                     }
-                    
+
                     for (int iChoice = 0; iChoice < player.nChoice.Count; iChoice++)
                     {
                         File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - ChoicesWithReaction.txt",
+                            player.playerID + "\t" + 
+                            player.playerName + "\t" +
+                            iChoice + "\t" + 
+                            player.movementTime[iChoice][0] + "\t" +
+                            (player.movementTime[iChoice][player.reaction[iChoice]] - player.movementTime[iChoice][0]) + "\t" +
+                            (player.movementTime[iChoice][player.motion[iChoice]] - player.movementTime[iChoice][player.reaction[iChoice]]) + "\t" +
+                            player.time[iChoice] + "\t" + 
+                            player.gameMode[iChoice] + "\t" + 
+                            player.speed[iChoice] + "\t" +
+                            player.nCards[iChoice] + "\t" +
+                            player.match[iChoice] + "\t" + 
+                            player.turnTime[iChoice] + "\t" +
+                            player.choiceChanged[iChoice] + "\t" +
+                            player.objective[iChoice].value + "\t" +
+                            player.objective[iChoice].suit + "\t" +
+                            player.objective[iChoice].color + "\t" +
+                            player.choice[iChoice].value + "\t" +
+                            player.choice[iChoice].suit + "\t" +
+                            player.choice[iChoice].color + "\t" +
+                            player.cardMatch[iChoice].value + "\t" +
+                            player.cardMatch[iChoice].suit + "\t" +
+                            player.cardMatch[iChoice].color + "\t" +
+                            player.timeToDo[iChoice].x + "\t" +
+                            player.timeToDo[iChoice].y + "\t" +
+                            player.timeToDo[iChoice].z + "\t" +
+                            player.objectivePos[iChoice].x + "\t" +
+                            player.objectivePos[iChoice].y + "\t" +
+                            player.choicePos[iChoice].x + "\t" +
+                            player.choicePos[iChoice].y + "\t" +
+                            player.ACER[0] + "\t" +
+                            player.ACER[1] + "\t" +
+                            player.ACER[2] + "\t" +
+                            player.ACER[3] + "\t" +
+                            player.ACER[4] + "\t" +
+                            player.ACER[5] + "\t" +
+                            player.ACER[6] + 
+                            Environment.NewLine, Encoding.UTF8);
+
+                        File.AppendAllText(Application.dataPath + "/Choices/AllChoicesWithReaction.txt",
+                            player.playerID + "\t" +
                             player.playerName + "\t" +
                             iChoice + "\t" + 
                             player.movementTime[iChoice][0] + "\t" +
@@ -1524,43 +1659,127 @@ public class Analyze : MonoBehaviour {
                             player.ACER[6] +
                             Environment.NewLine, Encoding.UTF8);
 
-                        File.AppendAllText(Application.dataPath + "/Choices/AllChoicesWithReaction.txt",
-                            player.playerName + "\t" +
-                            iChoice + "\t" + 
-                            player.movementTime[iChoice][0] + "\t" +
-                            (player.movementTime[iChoice][player.reaction[iChoice]] - player.movementTime[iChoice][0]) + "\t" +
-                            (player.movementTime[iChoice][player.motion[iChoice]] - player.movementTime[iChoice][player.reaction[iChoice]]) + "\t" +
-                            player.time[iChoice] + "\t" + 
-                            player.gameMode[iChoice] + "\t" + 
-                            player.speed[iChoice] + "\t" +
-                            player.nCards[iChoice] + "\t" +
-                            player.match[iChoice] + "\t" + 
-                            player.turnTime[iChoice] + "\t" +
-                            player.choiceChanged[iChoice] + "\t" +
-                            player.objective[iChoice].value + "\t" +
-                            player.objective[iChoice].suit + "\t" +
-                            player.objective[iChoice].color + "\t" +
-                            player.choice[iChoice].value + "\t" +
-                            player.choice[iChoice].suit + "\t" +
-                            player.choice[iChoice].color + "\t" +
-                            player.cardMatch[iChoice].value + "\t" +
-                            player.cardMatch[iChoice].suit + "\t" +
-                            player.cardMatch[iChoice].color + "\t" +
-                            player.timeToDo[iChoice].x + "\t" +
-                            player.timeToDo[iChoice].y + "\t" +
-                            player.timeToDo[iChoice].z + "\t" +
-                            player.objectivePos[iChoice].x + "\t" +
-                            player.objectivePos[iChoice].y + "\t" +
-                            player.choicePos[iChoice].x + "\t" +
-                            player.choicePos[iChoice].y + "\t" +
-                            player.ACER[0] + "\t" +
-                            player.ACER[1] + "\t" +
-                            player.ACER[2] + "\t" +
-                            player.ACER[3] + "\t" +
-                            player.ACER[4] + "\t" +
-                            player.ACER[5] + "\t" +
+                        File.AppendAllText(Application.dataPath + "/Choices/AllChoicesWithReaction.arff",
+                            player.ID + "," +
+                            player.playerName.Replace(" ", string.Empty) + "," +
+                            iChoice + "," + 
+                            player.movementTime[iChoice][0] + "," +
+                            (player.movementTime[iChoice][player.reaction[iChoice]] - player.movementTime[iChoice][0]) + "," +
+                            (player.movementTime[iChoice][player.motion[iChoice]] - player.movementTime[iChoice][player.reaction[iChoice]]) + "," +
+                            player.time[iChoice] + "," + 
+                            player.gameMode[iChoice] + "," + 
+                            player.speed[iChoice] + "," +
+                            player.nCards[iChoice] + "," +
+                            Convert.ToSingle(player.match[iChoice]) + "," + 
+                            player.turnTime[iChoice] + "," +
+                            player.choiceChanged[iChoice] + "," +
+                            player.objective[iChoice].value + "," +
+                            player.objective[iChoice].suit + "," +
+                            player.objective[iChoice].color + "," +
+                            player.choice[iChoice].value + "," +
+                            player.choice[iChoice].suit + "," +
+                            player.choice[iChoice].color + "," +
+                            player.cardMatch[iChoice].value + "," +
+                            player.cardMatch[iChoice].suit + "," +
+                            player.cardMatch[iChoice].color + "," +
+                            player.timeToDo[iChoice].x + "," +
+                            player.timeToDo[iChoice].y + "," +
+                            player.timeToDo[iChoice].z + "," +
+                            player.objectivePos[iChoice].x + "," +
+                            player.objectivePos[iChoice].y + "," +
+                            player.choicePos[iChoice].x + "," +
+                            player.choicePos[iChoice].y + "," +
+                            player.ACER[0] + "," +
+                            player.ACER[1] + "," +
+                            player.ACER[2] + "," +
+                            player.ACER[3] + "," +
+                            player.ACER[4] + "," +
+                            player.ACER[5] + "," +
                             player.ACER[6] +
-                            Environment.NewLine, Encoding.UTF8);
+                            Environment.NewLine, Encoding.Default);
+
+                        if (!File.Exists(Application.dataPath + "/Choices/AllChoicesWithReaction - Mode " + Mode(player.gameMode[iChoice]) + ".arff"))
+                            File.WriteAllText(Application.dataPath + "/Choices/AllChoicesWithReaction - Mode " + Mode(player.gameMode[iChoice]) + ".arff",
+                                "@RELATION AllChoicesWithReaction" + Environment.NewLine +
+                                Environment.NewLine +
+                                "@ATTRIBUTE ID REAL" + Environment.NewLine + 
+                                "@ATTRIBUTE Name {" + namesAux + "}" + Environment.NewLine +
+                                "@ATTRIBUTE Choice REAL" + Environment.NewLine +
+                                "@ATTRIBUTE TimeStart REAL" + Environment.NewLine +
+                                "@ATTRIBUTE RectionTime REAL" + Environment.NewLine +
+                                "@ATTRIBUTE MotionTime REAL" + Environment.NewLine +
+                                "@ATTRIBUTE EndTurn REAL" + Environment.NewLine +
+                                "@ATTRIBUTE Mode {0,1,2,3}" + Environment.NewLine +
+                                "@ATTRIBUTE GameSpeed REAL" + Environment.NewLine +
+                                "@ATTRIBUTE NCards REAL" + Environment.NewLine +
+                                "@ATTRIBUTE Match REAL" + Environment.NewLine +
+                                "@ATTRIBUTE TurnTime REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ChoiceChanged REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ObjectiveValue REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ObjectiveSuit REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ObjectiveColor REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ChoiceValue REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ChoiceSuit REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ChoiceColor REAL" + Environment.NewLine +
+                                "@ATTRIBUTE MatchValue REAL" + Environment.NewLine +
+                                "@ATTRIBUTE MatchSuit REAL" + Environment.NewLine +
+                                "@ATTRIBUTE MatchColor REAL" + Environment.NewLine +
+                                "@ATTRIBUTE TimeToPlay REAL" + Environment.NewLine +
+                                "@ATTRIBUTE TimeToMemorize REAL" + Environment.NewLine +
+                                "@ATTRIBUTE TimeToChoose REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ObjectiveMag REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ObjectiveAng REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ChoiceMag REAL" + Environment.NewLine +
+                                "@ATTRIBUTE ChoiceAng REAL" + Environment.NewLine +
+                                "@ATTRIBUTE meem-30 REAL" + Environment.NewLine +
+                                "@ATTRIBUTE acer-100 REAL" + Environment.NewLine +
+                                "@ATTRIBUTE atençaoeorientação-18 REAL" + Environment.NewLine +
+                                "@ATTRIBUTE memória-26 REAL" + Environment.NewLine +
+                                "@ATTRIBUTE fluência-14 REAL" + Environment.NewLine +
+                                "@ATTRIBUTE linguagem-26 REAL" + Environment.NewLine +
+                                "@ATTRIBUTE visual-espacial-16 REAL" + Environment.NewLine +
+                                Environment.NewLine +
+                                "@DATA" +
+                                Environment.NewLine, Encoding.Default);
+
+                        File.AppendAllText(Application.dataPath + "/Choices/AllChoicesWithReaction - Mode " + Mode(player.gameMode[iChoice]) + ".arff",
+                            player.ID + "," +
+                            player.playerName.Replace(" ", string.Empty) + "," +
+                            iChoice + "," + 
+                            player.movementTime[iChoice][0] + "," +
+                            (player.movementTime[iChoice][player.reaction[iChoice]] - player.movementTime[iChoice][0]) + "," +
+                            (player.movementTime[iChoice][player.motion[iChoice]] - player.movementTime[iChoice][player.reaction[iChoice]]) + "," +
+                            player.time[iChoice] + "," + 
+                            player.gameMode[iChoice] + "," + 
+                            player.speed[iChoice] + "," +
+                            player.nCards[iChoice] + "," +
+                            Convert.ToSingle(player.match[iChoice]) + "," + 
+                            player.turnTime[iChoice] + "," +
+                            player.choiceChanged[iChoice] + "," +
+                            player.objective[iChoice].value + "," +
+                            player.objective[iChoice].suit + "," +
+                            player.objective[iChoice].color + "," +
+                            player.choice[iChoice].value + "," +
+                            player.choice[iChoice].suit + "," +
+                            player.choice[iChoice].color + "," +
+                            player.cardMatch[iChoice].value + "," +
+                            player.cardMatch[iChoice].suit + "," +
+                            player.cardMatch[iChoice].color + "," +
+                            player.timeToDo[iChoice].x + "," +
+                            player.timeToDo[iChoice].y + "," +
+                            player.timeToDo[iChoice].z + "," +
+                            player.objectivePos[iChoice].x + "," +
+                            player.objectivePos[iChoice].y + "," +
+                            player.choicePos[iChoice].x + "," +
+                            player.choicePos[iChoice].y + "," +
+                            player.ACER[0] + "," +
+                            player.ACER[1] + "," +
+                            player.ACER[2] + "," +
+                            player.ACER[3] + "," +
+                            player.ACER[4] + "," +
+                            player.ACER[5] + "," +
+                            player.ACER[6] +
+                            Environment.NewLine, Encoding.Default);
 
                         int nMode = (player.gameMode[iChoice] * 6 + player.nCards[iChoice] - 3);
 
@@ -1606,7 +1825,10 @@ public class Analyze : MonoBehaviour {
                             devReaction[nMode][i] = Mathf.Sqrt(devReaction[nMode][i]);
                     }
 
+                    player.ReplaceTime();
+
                     File.WriteAllText(Application.dataPath + "/Choices/" + player.playerName + " - AverageTimesWithReaction.txt", 
+                        "ID \t" +
                         "Name \t" +
                         "Mode \t" +
                         "N Cards \t" +
@@ -1739,12 +1961,15 @@ public class Analyze : MonoBehaviour {
                             player.ACER[5] + "," +
                             player.ACER[6] +
                             Environment.NewLine, Encoding.Default);
+
+
                     }
 
                     for (int iMode = 0; iMode < 4; iMode++)
                     {
                         if (!File.Exists(Application.dataPath + "/Choices/AverageTimesWithReaction - Mode " + Mode(iMode) + ".txt"))
                             File.WriteAllText(Application.dataPath + "/Choices/AverageTimesWithReaction - Mode " + Mode(iMode) + ".txt", 
+                                "ID \t" +
                                 "Name \t" +
                                 "Mode \t" +
                                 "N Cards \t" +
@@ -1765,6 +1990,8 @@ public class Analyze : MonoBehaviour {
                                 "Dev Time to Choose \t" +
                                 "Min Time to Choose \t" +
                                 "Max Time to Choose \t" +
+                                "GameFamiliarity\t" +
+                                "CardFamiliarity\t" +
                                 "MEEM-30\t" +
                                 "ACER-100\t" + 
                                 "Atençao-Orientacao-18\t" +
@@ -1799,6 +2026,8 @@ public class Analyze : MonoBehaviour {
                                 "@ATTRIBUTE DevTimetoChoose REAL" + Environment.NewLine +
                                 "@ATTRIBUTE MinTimetoChoose REAL" + Environment.NewLine +
                                 "@ATTRIBUTE MaxTimetoChoose REAL" + Environment.NewLine +
+                                "@ATTRIBUTE GameFamiliarity REAL" + Environment.NewLine +
+                                "@ATTRIBUTE CardFamiliarity REAL" + Environment.NewLine +
                                 "@ATTRIBUTE meem-30 REAL" + Environment.NewLine +
                                 "@ATTRIBUTE acer-100 REAL" + Environment.NewLine +
                                 "@ATTRIBUTE atençaoeorientação-18 REAL" + Environment.NewLine +
@@ -1810,10 +2039,13 @@ public class Analyze : MonoBehaviour {
                                 "@DATA" +
                                 Environment.NewLine, Encoding.Default);
 
+
+
                         for (int nCards = 0; nCards < 6; nCards++)
                         {
                             int index = (iMode * 6 + nCards);
                             File.AppendAllText(Application.dataPath + "/Choices/" + player.playerName + " - AverageTimesWithReaction.txt", 
+                                player.playerID + "\t" +
                                 player.playerName + "\t" +
                                 iMode + "\t" +
                                 (nCards + 3) + "\t" +
@@ -1845,6 +2077,7 @@ public class Analyze : MonoBehaviour {
                                 , Encoding.UTF8);
 
                             File.AppendAllText(Application.dataPath + "/Choices/AverageTimesWithReaction.txt", 
+                                player.playerID + "\t" +
                                 player.playerName + "\t" +
                                 iMode + "\t" +
                                 (nCards + 3) + "\t" +
@@ -1876,6 +2109,7 @@ public class Analyze : MonoBehaviour {
                                 , Encoding.UTF8);
 
                             File.AppendAllText(Application.dataPath + "/Choices/AverageTimesWithReaction - Mode " + Mode(iMode) + ".txt", 
+                                player.playerID + "\t" +
                                 player.playerName + "\t" +
                                 iMode + "\t" +
                                 (nCards + 3) + "\t" +
@@ -1896,6 +2130,8 @@ public class Analyze : MonoBehaviour {
                                 devTimeToDo[index].z + "\t" +
                                 player.minTime[index].z + "\t" +
                                 player.maxTime[index].z + "\t" +
+                                player.ACER[7] + "\t" +
+                                player.ACER[8] + "\t" + 
                                 player.ACER[0] + "\t" +
                                 player.ACER[1] + "\t" +
                                 player.ACER[2] + "\t" +
@@ -1927,6 +2163,8 @@ public class Analyze : MonoBehaviour {
                                 devTimeToDo[index].z + "," +
                                 player.minTime[index].z + "," +
                                 player.maxTime[index].z + "," +
+                                player.ACER[7] + "," +
+                                player.ACER[8] + "," +
                                 player.ACER[0] + "," +
                                 player.ACER[1] + "," +
                                 player.ACER[2] + "," +
@@ -1939,6 +2177,219 @@ public class Analyze : MonoBehaviour {
                         }
                     }
 
+                }
+                break;
+                #endregion
+                #region Borderline
+            case Modes.BorderLines:
+                playerNames = new List<string>();
+                choices = new List<Choice>();
+
+                movementsText = File.ReadAllLines(Application.dataPath + "/Choices/Players.txt", Encoding.UTF8);
+                foreach (string line in movementsText)
+                {
+                    playerNames.Add(line);
+                }
+                foreach (string player in playerNames)
+                {
+                    movementsText = File.ReadAllLines(Application.dataPath + "/Choices/" + player + "/" + player + " - Historic.txt", Encoding.UTF8);
+                    choices.Add(new Choice(player));
+
+                    for (int iMode = 2; iMode < movementsText.Length; iMode++)
+                    {
+                        int index0 = 0;
+                        int index1 = 0;
+
+                        string[] testes = movementsText[iMode].Split(tab);
+                        if (File.Exists(Application.dataPath + "/Choices/" + player + "/" + player + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Choices.txt"))
+                        {
+
+                            string[] choiceLines = File.ReadAllLines(Application.dataPath + "/Choices/" + player + "/" + player + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Movements.txt", Encoding.UTF8);
+
+                            //                            Debug.Log(player + " has " + choiceLines.Length + " movements");
+
+                            movementTime = new float[choiceLines.Length - 1];
+                            movementPos = new Vector2[choiceLines.Length - 1];
+                            movementVel = new Vector2[choiceLines.Length - 1];
+
+                            min = max = Vector2.zero;
+
+                            for (int j = 1; j < choiceLines.Length; j++)
+                            {
+                                string[]choice = choiceLines[j].Split(tab);
+                                movementTime[j - 1] = float.Parse(choice[0]);
+                                Vector2 pos = new Vector2(float.Parse(choice[1]), float.Parse(choice[2]));
+
+                                try 
+                                {
+                                    if (pos.x < min.x)
+                                        min.x = pos.x;
+                                    if (pos.y < min.y)
+                                        min.y = pos.y;
+                                    if (pos.x > max.x)
+                                        max.x = pos.x;
+                                    if (pos.y > max.y)
+                                        max.y = pos.y;
+                                }
+                                catch (Exception e)
+                                {
+                                    Debug.Log(e);
+                                }
+
+                                movementPos[j - 1] = pos; // new Vector2(pos.magnitude, Mathf.Atan2(pos.y, pos.x));
+
+                                if (j >= 2)
+                                {
+                                    if (movementPos[j - 2] == Vector2.zero)
+                                    if (j == 2)
+                                    {
+                                        movementPos[j - 2] = movementPos[j - 1];
+                                    }
+                                    else
+                                    {
+                                        movementPos[j - 2] = (movementPos[j - 1] + movementPos[j - 3])/2f;
+                                    }
+                                }
+                            }
+
+                            center = (max + min) / 2f;
+                            bases = (max - min) / 2f;
+
+                            int angIndex = 36;
+
+                            borderLine1 = new Vector2[angIndex];
+                            for (int i = 0; i < borderLine1.Length; i++)
+                                borderLine1[i] = center;
+                            int slices = 10;
+
+                            for (int i = 0; i < movementPos.Length; i++)
+                            {
+                                offset = movementPos[i] - center;
+
+                                float ang = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+                                while (ang < 0f)
+                                    ang += 360f;
+                                int i_ang = Mathf.RoundToInt(ang/slices);
+                                if (i_ang >= Mathf.RoundToInt(360/slices))
+                                    i_ang -= Mathf.RoundToInt(360/slices);
+                                if (i_ang < 0)
+                                    i_ang += Mathf.RoundToInt(360/slices);
+
+                                polar = new Vector2(offset.magnitude, ang);
+                                if (polar.x > borderLine1[i_ang].x)
+                                    borderLine1[i_ang] = polar;
+                            }
+
+                            for (int i = 0; i < borderLine1.Length; i++)
+                            {
+                                choices[choices.Count - 1].package[i] = borderLine1[i].x;
+                                choices[choices.Count - 1].elipse[i] = (new Vector2(bases.x * Mathf.Cos(10f* i * Mathf.Deg2Rad), bases.y * Mathf.Sin(10f * i * Mathf.Deg2Rad))).magnitude;
+                            }
+
+                            choiceLines = File.ReadAllLines(Application.dataPath + "/Choices/" + player + "/" + player + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Choices.txt", Encoding.UTF8);
+
+                            //                            Debug.Log(player + " has " + choiceLines.Length + " choices");
+
+                            float startTime = 0f;
+                            float endTime = 0f;
+
+                            for (int iChoice = 2; iChoice < choiceLines.Length; iChoice++)
+                            {
+                                string[]choice = choiceLines[iChoice].Split(tab);
+                                int lastPlayer = choices.Count - 1;
+                                choices[lastPlayer].Add(choice);
+                            }
+                            //    Debug.Log(player + " - endTime = " + endTime.ToString() + " | choice = " + (choices[choices.Count - 1].nChoice.Count - 1).ToString());
+                        }
+                        else
+                        {
+                            Debug.Log(player + " - " + testes[2] + " - " + testes[1] + " - " + testes[0] + " - Choices.txt was not found");
+                        }
+                    }
+                }
+
+                    File.WriteAllText(Application.dataPath + "/Choices/" + playerName + " - BorderLine.txt", 
+                        "Border Calculated" + "\t" +
+                        Environment.NewLine +
+                        "X min" + "\t" +
+                        "Y min" + "\t" +
+                        "X max" + "\t" +
+                        "Y max" + "\t" +
+                        Environment.NewLine +
+                        min.x + "\t" +
+                        min.y + "\t" +
+                        max.x + "\t" +
+                        max.y + "\t" +
+                        Environment.NewLine +
+                        "X center" + "\t" +
+                        "Y center" + "\t" +
+                        "X bases" + "\t" +
+                        "Y bases" + "\t" +
+                        Environment.NewLine +
+                        center.x + "\t" +
+                        center.y + "\t" +
+                        bases.x + "\t" +
+                        bases.y + "\t" +
+                        Environment.NewLine +
+                        Environment.NewLine
+                        , Encoding.UTF8);
+
+                foreach (Choice player in choices)
+                {
+                    for (int i = 0; i < player.package.Length; i++)
+                    {
+                        File.AppendAllText(Application.dataPath + "/Choices/" + playerName + " - BorderLine.txt", 
+                            i + "\t" +
+                            player.package[i] + "\t" +
+                            player.elipse[i] + "\t" +
+                            Environment.NewLine
+                            , Encoding.UTF8);
+                    }
+                }
+
+                lineText = "\t";
+
+                for (int i = 0; i < choices.Count; i++)
+                {
+                    choices[i].RadialProfile();
+                    lineText = lineText + choices[i].playerName + "\t\t\t\t";
+                }
+
+                File.WriteAllText(Application.dataPath + "/Choices/RadialAverageTime.txt", 
+                    lineText
+                    + Environment.NewLine, Encoding.UTF8);
+
+                File.WriteAllText(Application.dataPath + "/Choices/RadialMistakes.txt", 
+                    lineText
+                    + Environment.NewLine, Encoding.UTF8);
+
+                for (int i = 0; i < 36; i++)
+                {
+                    lineText = (10f*i).ToString() + "\t";
+                    for (int j = 0; j < choices.Count; j++)
+                    {
+                        lineText = lineText + choices[j].package[i] + "\t";
+                        lineText = lineText + choices[j].elipse[i] + "\t";
+                        lineText = lineText + (choices[j].package[i] / choices[j].elipse[i]) + "\t";
+                        lineText = lineText + choices[j].averageTime[i] + "\t";
+                    }
+                    File.AppendAllText(Application.dataPath + "/Choices/RadialAverageTime.txt", 
+                        lineText +
+                        Environment.NewLine
+                        , Encoding.UTF8);
+
+                    lineText = (10f*i).ToString() + "\t";
+                    for (int j = 0; j < choices.Count; j++)
+                    {
+                        lineText = lineText + choices[j].package[i] + "\t";
+                        lineText = lineText + choices[j].elipse[i] + "\t";
+                        lineText = lineText + (choices[j].package[i] / choices[j].elipse[i]) + "\t";
+                        lineText = lineText + choices[j].nMistake[i] + "\t";
+                    }
+                    File.AppendAllText(Application.dataPath + "/Choices/RadialMistakes.txt", 
+                        lineText +
+                        Environment.NewLine
+                        , Encoding.UTF8);
                 }
                 break;
                 #endregion

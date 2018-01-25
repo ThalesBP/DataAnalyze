@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+using System.IO;
+using System.Text;
+
 public class Choice {
 
+    static public int CurrentID = 0;
+
     public string playerName;
+    public string playerID;
+    public int ID;
     public int[] nMistake;
     public float[] package, elipse, averageTime;
     public List<int> nChoice, nCards, gameMode;
@@ -22,7 +30,7 @@ public class Choice {
     public List<Vector2[]> movementPos;
     public List<int> reaction, motion;
 
-    public int elemNorm = 20;
+    static public int elemNorm = 20;
     public float[] moveTimeNorm;
     public int[][] moveCountNorm;
     public Vector2[][] movePosNorm;
@@ -36,12 +44,16 @@ public class Choice {
 
     public Vector3[][] minTimes = new Vector3[24][];
     public Vector3[][] maxTimes = new Vector3[24][];
+    public int[] countTimes = new int[24];
 
-    public float[] ACER = new float[7];
+    public float[] ACER = new float[9];
 
     public Choice (string name)
     {
         playerName = name;
+        CurrentID++;
+        playerID = "Subject_" + CurrentID.ToString("00");
+        ID = CurrentID;
         nChoice = new List<int>();
         nCards = new List<int>();
         gameMode = new List<int>();
@@ -81,6 +93,8 @@ public class Choice {
             maxTime[i] = Vector3.zero;
             countTime[i] = new int[3][];
         }
+
+        StartXTimes(3);
     }
 
     public Choice (string[] name)
@@ -90,6 +104,9 @@ public class Choice {
         {
             ACER[i - 1] = float.Parse(name[i]);
         }
+        CurrentID++;
+        playerID = "Subject_" + CurrentID.ToString("00");
+        ID = CurrentID;
 
         nChoice = new List<int>();
         nCards = new List<int>();
@@ -129,6 +146,8 @@ public class Choice {
             minTime[i] = Vector3.one * float.MaxValue;
             maxTime[i] = Vector3.zero;
         }
+
+        StartXTimes(3);
     }
 
 
@@ -138,8 +157,16 @@ public class Choice {
         int modeAux, nCardAux;
         Vector3 timeToDoAux;
 
-        nChoice.Add(int.Parse(line[0]));
-        time.Add(float.Parse(line[1]));
+        try
+        {
+            nChoice.Add(int.Parse(line[0]));
+            time.Add(float.Parse(line[1]));
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Line 0 - " + line[0]);
+            Debug.Log("Line 1 - " + line[1]);
+        }
 
         switch (line[2])
         {
@@ -189,6 +216,8 @@ public class Choice {
                 maxTime[modeAux * 6 + nCardAux - 3][i] = timeToDoAux[i];
             if (timeToDoAux[i] < minTime[modeAux * 6 + nCardAux - 3][i])
                 minTime[modeAux * 6 + nCardAux - 3][i] = timeToDoAux[i];
+
+            AddXTimes(timeToDoAux[i], modeAux * 6 + nCardAux - 3, i);
         }
         timeToDo.Add(timeToDoAux);
 
@@ -449,41 +478,63 @@ public class Choice {
         {
             minTimes[i] = new Vector3[n];
             maxTimes[i] = new Vector3[n];
+            countTimes[i] = 0;
             for (int j = 0; j < n; j++)
             {
-                minTimes[i][j] = float.MaxValue;
-                maxTimes[i][j] = float.MinValue;
+                minTimes[i][j] = float.MaxValue * Vector3.one;
+                maxTimes[i][j] = float.MinValue * Vector3.one;
             }
         }
     }
 
-    public void AddXTimes(float num, int mode)
+    public void AddXTimes(float num, int mode, int axis)
     {
-        int i = 0;
-        while (i < minTimes[mode].Length)
+        bool added = false;
+        for (int i = 0; i < minTimes[mode].Length; i++)
         {
-            if (num < minTimes[mode][i])
+            if (num <= minTimes[mode][i][axis])
             {
                 for (int j = minTimes[mode].Length - 1; j > i; j--)
                 {
-                    minTimes[mode][j] = minTimes[mode][j - 1];
+                    minTimes[mode][j][axis] = minTimes[mode][j - 1][axis];
                 }
-                minTimes[mode][i] = num;
+                minTimes[mode][i][axis] = num;
+                added = true;
                 break;
             }
         }
-        i = 0;
-        while (i < maxTimes[mode].Length)
+        for (int i = 0; i < maxTimes[mode].Length; i++)
         {
-            if (num > maxTimes[mode][i])
+            if (num >= maxTimes[mode][i][axis])
             {
                 for (int j = minTimes[mode].Length - 1; j > i; j--)
                 {
-                    maxTimes[mode][j] = maxTimes[mode][j - 1];
+                    maxTimes[mode][j][axis] = maxTimes[mode][j - 1][axis];
                 }
-                maxTimes[mode][i] = num;
+                maxTimes[mode][i][axis] = num;
+                added = true;
                 break;
             }
+        }
+        if (added)
+            countTimes[mode] = Mathf.Clamp(countTimes[mode] + 1, 0, minTimes[mode].Length - 1);
+    }
+
+    public void ReplaceTime()
+    {
+        for (int mode = 0; mode < 24; mode++)
+        {
+            minTime[mode] = Vector3.zero;
+            maxTime[mode] = Vector3.zero;
+
+            for (int i = 0; i < countTimes[mode]; i++)
+            {
+                minTime[mode] += minTimes[mode][i];
+                maxTime[mode] += maxTimes[mode][i];
+            }
+
+            minTime[mode] /= countTimes[mode];
+            maxTime[mode] /= countTimes[mode];
         }
     }
 }
