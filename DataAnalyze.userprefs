@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Choice.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Analyze.cs">
     <Files>
       <File FileName="Assets\Analyze.cs" Line="2355" Column="76" />
-      <File FileName="Assets\Choice.cs" Line="17" Column="25" />
+      <File FileName="Assets\Choice.cs" Line="9" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
