@@ -1,0 +1,1038 @@
+﻿Time	Message
+0.01654029	Jogo executando - Esperando jogador ler
+0.04188956	Jogo executando - Esperando jogador iniciar
+0.2797227	Big Time Step Reading0.01660156
+0.2797227	Jogo executando - Esperando jogador iniciar
+0.2962894	Big Time Step Reading0.01660156
+0.2962894	Jogo executando - Esperando jogador iniciar
+0.3459892	Big Time Step Reading0
+0.3459892	Jogo executando - Esperando jogador iniciar
+0.3625556	Big Time Step Reading0
+0.3625556	Jogo executando - Esperando jogador iniciar
+0.3791223	Big Time Step Reading0
+0.3791223	Jogo executando - Esperando jogador iniciar
+0.3956894	Big Time Step Reading0.01660156
+0.3956894	Jogo executando - Esperando jogador iniciar
+0.445392	Big Time Step Reading0
+0.445392	Jogo executando - Esperando jogador iniciar
+0.495091	Big Time Step Reading0
+0.495091	Jogo executando - Esperando jogador iniciar
+0.6940067	Big Time Step Reading0
+0.6940067	Jogo executando - Esperando jogador iniciar
+0.7104574	Big Time Step Reading0
+0.7104574	Jogo executando - Esperando jogador iniciar
+0.7270234	Big Time Step Reading0
+0.7270234	Jogo executando - Esperando jogador iniciar
+0.7435901	Big Time Step Reading0.01660156
+0.7435901	Jogo executando - Esperando jogador iniciar
+0.8995078	Big Time Step Reading0.01660156
+0.8995078	Jogo executando - Esperando jogador iniciar
+0.9160741	Big Time Step Reading0.01660156
+0.9160741	Jogo executando - Esperando jogador iniciar
+1.032041	Big Time Step Reading0.01660156
+1.032041	Jogo executando - Esperando jogador iniciar
+1.595627	Big Time Step Reading0.01660156
+1.595627	Jogo executando - Esperando jogador iniciar
+1.751	Big Time Step Reading0
+1.751	Jogo executando - Esperando jogador iniciar
+1.767566	Big Time Step Reading0
+1.767566	Jogo executando - Esperando jogador iniciar
+1.784133	Big Time Step Reading0.01660156
+1.784133	Jogo executando - Esperando jogador iniciar
+1.866968	Big Time Step Reading0
+1.866968	Jogo executando - Esperando jogador iniciar
+1.883533	Big Time Step Reading0
+1.883533	Jogo executando - Esperando jogador iniciar
+1.9001	Big Time Step Reading0
+1.9001	Jogo executando - Esperando jogador iniciar
+2.016067	Big Time Step Reading0.01660156
+2.016067	Jogo executando - Esperando jogador iniciar
+2.132034	Jogo executando - Esperando jogador escolher
+2.281135	Big Time Step Reading0
+2.281135	Jogo executando - Esperando jogador escolher
+2.385187	Big Time Step Reading0
+2.385187	Jogo executando - Esperando jogador escolher
+2.40169	Big Time Step Reading0
+2.40169	Jogo executando - Esperando jogador escolher
+2.418257	Big Time Step Reading0
+2.418257	Jogo executando - Esperando jogador escolher
+2.434823	Big Time Step Reading0
+2.434823	Jogo executando - Esperando jogador escolher
+2.484524	Big Time Step Reading0
+2.484524	Jogo executando - Esperando jogador escolher
+2.583923	Big Time Step Reading0
+2.583923	Jogo executando - Esperando jogador escolher
+2.60049	Big Time Step Reading0
+2.60049	Jogo executando - Esperando jogador escolher
+2.865556	Big Time Step Reading0.01660156
+2.865556	Jogo executando - Esperando jogador escolher
+2.882124	Big Time Step Reading0.01660156
+2.882124	Jogo executando - Esperando jogador escolher
+2.898691	Big Time Step Reading0.01660156
+2.898691	Jogo executando - Esperando jogador escolher
+2.915257	Big Time Step Reading0.01660156
+2.915257	Jogo executando - Esperando jogador escolher
+2.931823	Big Time Step Reading0.03320313
+2.931823	Jogo executando - Esperando jogador escolher
+3.152681	Big Time Step Reading0.01660156
+3.152681	Jogo executando - Esperando jogador escolher
+4.069551	Big Time Step Reading0.01660156
+4.069551	Jogo executando - Esperando jogador escolher
+4.086114	Big Time Step Reading0.01660156
+4.086114	Jogo executando - Esperando jogador escolher
+4.102681	Big Time Step Reading0.01660156
+4.102681	Jogo executando - Esperando jogador escolher
+4.119247	Big Time Step Reading0.04882813
+4.119247	Jogo executando - Esperando jogador escolher
+4.135814	Big Time Step Reading0.04882813
+4.135814	Jogo executando - Esperando jogador escolher
+4.152381	Big Time Step Reading0.04882813
+4.152381	Jogo executando - Esperando jogador escolher
+4.168948	Big Time Step Reading0.04882813
+4.168948	Jogo executando - Esperando jogador escolher
+4.185517	Big Time Step Reading0.06640625
+4.185517	Jogo executando - Esperando jogador escolher
+4.985123	Big Time Step Reading0.01757813
+4.985123	Jogo executando - Esperando jogador escolher
+5.018256	Big Time Step Reading0
+5.018256	Jogo executando - Esperando jogador escolher
+5.05139	Big Time Step Reading0
+5.05139	Jogo executando - Esperando jogador escolher
+5.067956	Big Time Step Reading0
+5.067956	Jogo executando - Esperando jogador escolher
+5.084523	Big Time Step Reading0.01660156
+5.084523	Jogo executando - Esperando jogador escolher
+5.167358	Big Time Step Reading0.01660156
+5.167358	Jogo executando - Esperando jogador escolher
+5.200491	Jogo executando - Escolha certa
+5.439323	Big Time Step Reading0.02148438
+5.439323	Jogo executando - Escolha certa
+5.621556	Big Time Step Reading0.01660156
+5.621556	Jogo executando - Escolha certa
+5.638123	Big Time Step Reading0.01660156
+5.638123	Jogo executando - Escolha certa
+5.853489	Big Time Step Reading0
+5.853489	Jogo executando - Escolha certa
+6.035723	Big Time Step Reading0.01660156
+6.035723	Jogo executando - Escolha certa
+6.05229	Big Time Step Reading0.01660156
+6.05229	Jogo executando - Escolha certa
+6.068857	Big Time Step Reading0.01660156
+6.068857	Jogo executando - Escolha certa
+6.523758	Jogo executando - Turno terminando
+7.124995	Big Time Step Reading0.02148438
+7.124995	Jogo executando - Turno terminando
+7.15813	Big Time Step Reading0.01660156
+7.15813	Jogo executando - Turno terminando
+7.174697	Big Time Step Reading0
+7.174697	Jogo executando - Turno terminando
+7.191266	Big Time Step Reading0.01660156
+7.191266	Jogo executando - Turno terminando
+7.35693	Big Time Step Reading0
+7.35693	Jogo executando - Turno terminando
+7.60543	Big Time Step Reading0.04980469
+7.60543	Jogo executando - Turno terminando
+7.754529	Big Time Step Reading0
+7.754529	Jogo executando - Turno terminando
+7.843592	Jogo executando - Novo turno
+7.86016	Jogo executando - Esperando jogador ler
+7.878303	Jogo executando - Esperando jogador iniciar
+8.093672	Big Time Step Reading0.01660156
+8.093672	Jogo executando - Esperando jogador iniciar
+8.110238	Big Time Step Reading0
+8.110238	Jogo executando - Esperando jogador iniciar
+8.126804	Big Time Step Reading0.01660156
+8.126804	Jogo executando - Esperando jogador iniciar
+8.143373	Big Time Step Reading0.01660156
+8.143373	Jogo executando - Esperando jogador iniciar
+8.358737	Big Time Step Reading0.01660156
+8.358737	Jogo executando - Esperando jogador iniciar
+8.49127	Big Time Step Reading0.03320313
+8.49127	Jogo executando - Esperando jogador iniciar
+8.761205	Big Time Step Reading0.01660156
+8.761205	Jogo executando - Esperando jogador iniciar
+9.125668	Big Time Step Reading0
+9.125668	Jogo executando - Esperando jogador iniciar
+9.208503	Big Time Step Reading0.01660156
+9.208503	Jogo executando - Esperando jogador iniciar
+9.395514	Big Time Step Reading0.01660156
+9.395514	Jogo executando - Esperando jogador iniciar
+9.826245	Big Time Step Reading0.01757813
+9.826245	Jogo executando - Esperando jogador iniciar
+9.859464	Big Time Step Reading0.01757813
+9.859464	Jogo executando - Esperando jogador iniciar
+10.09131	Jogo executando - Esperando jogador escolher
+10.27821	Big Time Step Reading0.03320313
+10.27821	Jogo executando - Esperando jogador escolher
+10.29478	Big Time Step Reading0.01660156
+10.29478	Jogo executando - Esperando jogador escolher
+10.42737	Big Time Step Reading0.01660156
+10.42737	Jogo executando - Esperando jogador escolher
+10.47701	Big Time Step Reading0.01660156
+10.47701	Jogo executando - Esperando jogador escolher
+10.55984	Big Time Step Reading0
+10.55984	Jogo executando - Esperando jogador escolher
+10.59298	Big Time Step Reading0
+10.59298	Jogo executando - Esperando jogador escolher
+10.67604	Big Time Step Reading0
+10.67604	Jogo executando - Esperando jogador escolher
+10.69238	Big Time Step Reading0
+10.69238	Jogo executando - Esperando jogador escolher
+10.81577	Big Time Step Reading0.01660156
+10.81577	Jogo executando - Esperando jogador escolher
+10.83234	Big Time Step Reading0.01660156
+10.83234	Jogo executando - Esperando jogador escolher
+11.11894	Big Time Step Reading0.01660156
+11.11894	Jogo executando - Esperando jogador escolher
+11.1854	Big Time Step Reading0
+11.1854	Jogo executando - Esperando jogador escolher
+11.20177	Big Time Step Reading0
+11.20177	Jogo executando - Esperando jogador escolher
+11.21834	Big Time Step Reading0.01660156
+11.21834	Jogo executando - Esperando jogador escolher
+11.23494	Big Time Step Reading0.01660156
+11.23494	Jogo executando - Esperando jogador escolher
+11.26804	Big Time Step Reading0
+11.26804	Jogo executando - Esperando jogador escolher
+11.2846	Big Time Step Reading0.01660156
+11.2846	Jogo executando - Esperando jogador escolher
+11.36744	Big Time Step Reading0
+11.36744	Jogo executando - Esperando jogador escolher
+11.384	Big Time Step Reading0
+11.384	Jogo executando - Esperando jogador escolher
+11.40057	Big Time Step Reading0
+11.40057	Jogo executando - Esperando jogador escolher
+11.41714	Big Time Step Reading0.01660156
+11.41714	Jogo executando - Esperando jogador escolher
+11.73729	Jogo executando - Escolha certa
+11.82235	Big Time Step Reading0.01757813
+11.82235	Jogo executando - Escolha certa
+12.39027	Big Time Step Reading0
+12.39027	Jogo executando - Escolha certa
+12.5228	Big Time Step Reading0.01660156
+12.5228	Jogo executando - Escolha certa
+12.60563	Big Time Step Reading0
+12.60563	Jogo executando - Escolha certa
+12.85413	Jogo executando - Turno terminando
+12.95353	Big Time Step Reading0.01660156
+12.95353	Jogo executando - Turno terminando
+12.98667	Big Time Step Reading0
+12.98667	Jogo executando - Turno terminando
+13.05293	Big Time Step Reading0.01660156
+13.05293	Jogo executando - Turno terminando
+13.17374	Big Time Step Reading0
+13.17374	Jogo executando - Turno terminando
+13.19031	Big Time Step Reading0
+13.19031	Jogo executando - Turno terminando
+13.22344	Big Time Step Reading0
+13.22344	Jogo executando - Turno terminando
+13.24001	Big Time Step Reading0
+13.24001	Jogo executando - Turno terminando
+13.25658	Big Time Step Reading0
+13.25658	Jogo executando - Turno terminando
+13.45538	Big Time Step Reading0
+13.45538	Jogo executando - Turno terminando
+13.48851	Big Time Step Reading0.01660156
+13.48851	Jogo executando - Turno terminando
+13.52164	Big Time Step Reading0
+13.52164	Jogo executando - Turno terminando
+13.62104	Big Time Step Reading0
+13.62104	Jogo executando - Turno terminando
+13.82537	Big Time Step Reading0
+13.82537	Jogo executando - Turno terminando
+13.84193	Big Time Step Reading0.01660156
+13.84193	Jogo executando - Turno terminando
+13.87506	Big Time Step Reading0
+13.87506	Jogo executando - Turno terminando
+13.9579	Big Time Step Reading0.01660156
+13.9579	Jogo executando - Novo turno
+13.97486	Jogo executando - Esperando jogador ler
+13.99315	Jogo executando - Esperando jogador iniciar
+14.04285	Big Time Step Reading0
+14.04285	Jogo executando - Esperando jogador iniciar
+14.05943	Big Time Step Reading0
+14.05943	Jogo executando - Esperando jogador iniciar
+14.07598	Big Time Step Reading0
+14.07598	Jogo executando - Esperando jogador iniciar
+14.09255	Big Time Step Reading0.01660156
+14.09255	Jogo executando - Esperando jogador iniciar
+14.35763	Big Time Step Reading0
+14.35763	Jogo executando - Esperando jogador iniciar
+14.47896	Big Time Step Reading0
+14.47896	Jogo executando - Esperando jogador iniciar
+14.9768	Big Time Step Reading0
+14.9768	Jogo executando - Esperando jogador iniciar
+15.15903	Big Time Step Reading0.01660156
+15.15903	Jogo executando - Esperando jogador iniciar
+15.1756	Big Time Step Reading0.01660156
+15.1756	Jogo executando - Esperando jogador iniciar
+15.19217	Big Time Step Reading0.01660156
+15.19217	Jogo executando - Esperando jogador iniciar
+15.31381	Big Time Step Reading0
+15.31381	Jogo executando - Esperando jogador iniciar
+15.69473	Big Time Step Reading0.08300781
+15.69473	Jogo executando - Esperando jogador iniciar
+15.71159	Big Time Step Reading0.01660156
+15.71159	Jogo executando - Esperando jogador iniciar
+15.81069	Big Time Step Reading0
+15.81069	Jogo executando - Esperando jogador iniciar
+15.95979	Big Time Step Reading0
+15.95979	Jogo executando - Esperando jogador iniciar
+15.97636	Big Time Step Reading0
+15.97636	Jogo executando - Esperando jogador iniciar
+15.99293	Big Time Step Reading0
+15.99293	Jogo executando - Esperando jogador iniciar
+16.23046	Big Time Step Reading0.01660156
+16.23046	Jogo executando - Esperando jogador iniciar
+16.24701	Big Time Step Reading0.01660156
+16.24701	Jogo executando - Esperando jogador iniciar
+16.26357	Big Time Step Reading0.01660156
+16.26357	Jogo executando - Esperando jogador iniciar
+16.28014	Big Time Step Reading0.01660156
+16.28014	Jogo executando - Esperando jogador iniciar
+16.34641	Jogo executando - Esperando jogador escolher
+16.37956	Big Time Step Reading0
+16.37956	Jogo executando - Esperando jogador escolher
+16.3961	Big Time Step Reading0
+16.3961	Jogo executando - Esperando jogador escolher
+16.42924	Big Time Step Reading0
+16.42924	Jogo executando - Esperando jogador escolher
+16.4458	Big Time Step Reading0.01660156
+16.4458	Jogo executando - Esperando jogador escolher
+17.37292	Big Time Step Reading0.01660156
+17.37292	Jogo executando - Esperando jogador escolher
+17.40606	Big Time Step Reading0.01660156
+17.40606	Jogo executando - Esperando jogador escolher
+17.42263	Big Time Step Reading0.01660156
+17.42263	Jogo executando - Esperando jogador escolher
+17.43919	Big Time Step Reading0.01660156
+17.43919	Jogo executando - Esperando jogador escolher
+17.48889	Big Time Step Reading0.01660156
+17.48889	Jogo executando - Esperando jogador escolher
+17.89266	Big Time Step Reading0
+17.89266	Jogo executando - Esperando jogador escolher
+17.9258	Big Time Step Reading0
+17.9258	Jogo executando - Esperando jogador escolher
+18.07526	Jogo executando - Escolha certa
+18.1246	Big Time Step Reading0.01660156
+18.1246	Jogo executando - Escolha certa
+18.29026	Big Time Step Reading0.01660156
+18.29026	Jogo executando - Escolha certa
+18.32343	Big Time Step Reading0.01660156
+18.32343	Jogo executando - Escolha certa
+18.33996	Big Time Step Reading0.01660156
+18.33996	Jogo executando - Escolha certa
+18.3626	Big Time Step Reading0.06542969
+18.3626	Jogo executando - Escolha certa
+18.52827	Big Time Step Reading0.01660156
+18.52827	Jogo executando - Escolha certa
+18.5614	Big Time Step Reading0.01660156
+18.5614	Jogo executando - Escolha certa
+18.77677	Big Time Step Reading0
+18.77677	Jogo executando - Escolha certa
+18.79334	Big Time Step Reading0.01660156
+18.79334	Jogo executando - Escolha certa
+18.80991	Big Time Step Reading0.01660156
+18.80991	Jogo executando - Escolha certa
+18.82648	Big Time Step Reading0
+18.82648	Jogo executando - Escolha certa
+18.85982	Big Time Step Reading0.01660156
+18.85982	Jogo executando - Escolha certa
+18.89284	Big Time Step Reading0.01660156
+18.89284	Jogo executando - Escolha certa
+19.06347	Big Time Step Reading0.01660156
+19.06347	Jogo executando - Escolha certa
+19.07998	Big Time Step Reading0.01660156
+19.07998	Jogo executando - Escolha certa
+19.09651	Big Time Step Reading0.01660156
+19.09651	Jogo executando - Escolha certa
+19.14621	Jogo executando - Turno terminando
+19.39471	Big Time Step Reading0.01660156
+19.39471	Jogo executando - Turno terminando
+19.41128	Big Time Step Reading0.01660156
+19.41128	Jogo executando - Turno terminando
+19.44441	Big Time Step Reading0.01660156
+19.44441	Jogo executando - Turno terminando
+20.21083	Jogo executando - Novo turno
+20.2274	Jogo executando - Esperando jogador ler
+20.24632	Jogo executando - Esperando jogador iniciar
+20.60285	Big Time Step Reading0
+20.60285	Jogo executando - Esperando jogador iniciar
+20.93873	Big Time Step Reading0
+20.93873	Jogo executando - Esperando jogador iniciar
+21.02159	Big Time Step Reading0.01660156
+21.02159	Jogo executando - Esperando jogador iniciar
+21.03813	Big Time Step Reading0.01660156
+21.03813	Jogo executando - Esperando jogador iniciar
+21.12097	Big Time Step Reading0.01660156
+21.12097	Jogo executando - Esperando jogador iniciar
+21.23694	Big Time Step Reading0
+21.23694	Jogo executando - Esperando jogador iniciar
+21.27007	Big Time Step Reading0
+21.27007	Jogo executando - Esperando jogador iniciar
+21.47378	Big Time Step Reading0
+21.47378	Jogo executando - Esperando jogador iniciar
+21.50691	Big Time Step Reading0.01660156
+21.50691	Jogo executando - Esperando jogador iniciar
+21.52348	Big Time Step Reading0.01660156
+21.52348	Jogo executando - Esperando jogador iniciar
+21.93765	Big Time Step Reading0
+21.93765	Jogo executando - Esperando jogador iniciar
+21.97078	Big Time Step Reading0
+21.97078	Jogo executando - Esperando jogador iniciar
+22.00405	Jogo executando - Esperando jogador escolher
+22.07018	Big Time Step Reading0
+22.07018	Jogo executando - Esperando jogador escolher
+22.10332	Big Time Step Reading0
+22.10332	Jogo executando - Esperando jogador escolher
+22.16959	Big Time Step Reading0.01660156
+22.16959	Jogo executando - Esperando jogador escolher
+22.47369	Big Time Step Reading0
+22.47369	Jogo executando - Esperando jogador escolher
+22.50691	Big Time Step Reading0.03320313
+22.50691	Jogo executando - Esperando jogador escolher
+22.52342	Big Time Step Reading0.01660156
+22.52342	Jogo executando - Esperando jogador escolher
+22.60623	Big Time Step Reading0
+22.60623	Jogo executando - Esperando jogador escolher
+22.68906	Big Time Step Reading0.01660156
+22.68906	Jogo executando - Esperando jogador escolher
+22.70563	Big Time Step Reading0.01660156
+22.70563	Jogo executando - Esperando jogador escolher
+22.73876	Big Time Step Reading0
+22.73876	Jogo executando - Esperando jogador escolher
+22.88786	Big Time Step Reading0.01660156
+22.88786	Jogo executando - Esperando jogador escolher
+23.19282	Big Time Step Reading0.01660156
+23.19282	Jogo executando - Esperando jogador escolher
+23.20938	Big Time Step Reading0.01660156
+23.20938	Jogo executando - Esperando jogador escolher
+23.57385	Big Time Step Reading0.06640625
+23.57385	Jogo executando - Esperando jogador escolher
+23.59069	Big Time Step Reading0.06640625
+23.59069	Jogo executando - Esperando jogador escolher
+23.60699	Big Time Step Reading0.06640625
+23.60699	Jogo executando - Esperando jogador escolher
+23.84298	Big Time Step Reading0.01660156
+23.84298	Jogo executando - Esperando jogador escolher
+23.85954	Big Time Step Reading0
+23.85954	Jogo executando - Esperando jogador escolher
+23.95894	Big Time Step Reading0.01660156
+23.95894	Jogo executando - Esperando jogador escolher
+24.30684	Big Time Step Reading0.01660156
+24.30684	Jogo executando - Esperando jogador escolher
+24.37311	Jogo executando - Escolha certa
+24.45594	Big Time Step Reading0.08300781
+24.45594	Jogo executando - Escolha certa
+24.47281	Big Time Step Reading0.08300781
+24.47281	Jogo executando - Escolha certa
+25.17333	Big Time Step Reading0
+25.17333	Jogo executando - Escolha certa
+25.32241	Big Time Step Reading0.01660156
+25.32241	Jogo executando - Escolha certa
+25.45946	Jogo executando - Turno terminando
+25.57542	Big Time Step Reading0
+25.57542	Jogo executando - Turno terminando
+25.91465	Big Time Step Reading0.01660156
+25.91465	Jogo executando - Turno terminando
+26.53229	Big Time Step Reading0
+26.53229	Jogo executando - Novo turno
+26.54885	Jogo executando - Esperando jogador ler
+26.57097	Jogo executando - Esperando jogador iniciar
+26.58754	Big Time Step Reading0.02246094
+26.58754	Jogo executando - Esperando jogador iniciar
+26.6041	Big Time Step Reading0.02246094
+26.6041	Jogo executando - Esperando jogador iniciar
+26.95201	Big Time Step Reading0.01660156
+26.95201	Jogo executando - Esperando jogador iniciar
+26.96859	Big Time Step Reading0.01660156
+26.96859	Jogo executando - Esperando jogador iniciar
+26.98514	Big Time Step Reading0.01660156
+26.98514	Jogo executando - Esperando jogador iniciar
+27.00784	Big Time Step Reading0.03320313
+27.00784	Jogo executando - Esperando jogador iniciar
+27.02441	Big Time Step Reading0.03320313
+27.02441	Jogo executando - Esperando jogador iniciar
+27.04114	Big Time Step Reading0.03320313
+27.04114	Jogo executando - Esperando jogador iniciar
+27.05754	Big Time Step Reading0.03320313
+27.05754	Jogo executando - Esperando jogador iniciar
+27.22321	Big Time Step Reading0.01660156
+27.22321	Jogo executando - Esperando jogador iniciar
+27.23978	Big Time Step Reading0
+27.23978	Jogo executando - Esperando jogador iniciar
+27.25634	Big Time Step Reading0.01660156
+27.25634	Jogo executando - Esperando jogador iniciar
+27.33936	Big Time Step Reading0.01660156
+27.33936	Jogo executando - Esperando jogador iniciar
+27.74236	Big Time Step Reading0
+27.74236	Jogo executando - Esperando jogador iniciar
+27.75893	Big Time Step Reading0.01660156
+27.75893	Jogo executando - Esperando jogador iniciar
+27.7755	Big Time Step Reading0.01660156
+27.7755	Jogo executando - Esperando jogador iniciar
+27.8749	Big Time Step Reading0.01757813
+27.8749	Jogo executando - Esperando jogador iniciar
+27.89146	Big Time Step Reading0.01757813
+27.89146	Jogo executando - Esperando jogador iniciar
+27.90803	Big Time Step Reading0.03222656
+27.90803	Jogo executando - Esperando jogador iniciar
+28.1234	Big Time Step Reading0
+28.1234	Jogo executando - Esperando jogador iniciar
+28.15653	Big Time Step Reading0
+28.15653	Jogo executando - Esperando jogador iniciar
+28.17345	Jogo executando - Esperando jogador escolher
+28.3719	Big Time Step Reading0.01660156
+28.3719	Jogo executando - Esperando jogador escolher
+28.38847	Big Time Step Reading0.01660156
+28.38847	Jogo executando - Esperando jogador escolher
+28.56201	Big Time Step Reading0.01660156
+28.56201	Jogo executando - Esperando jogador escolher
+28.71111	Big Time Step Reading0.03222656
+28.71111	Jogo executando - Esperando jogador escolher
+28.72767	Big Time Step Reading0.01660156
+28.72767	Jogo executando - Esperando jogador escolher
+28.82708	Big Time Step Reading0
+28.82708	Jogo executando - Esperando jogador escolher
+28.84364	Big Time Step Reading0
+28.84364	Jogo executando - Esperando jogador escolher
+28.86021	Big Time Step Reading0.01660156
+28.86021	Jogo executando - Esperando jogador escolher
+28.92648	Big Time Step Reading0
+28.92648	Jogo executando - Esperando jogador escolher
+29.00931	Big Time Step Reading0.01660156
+29.00931	Jogo executando - Esperando jogador escolher
+29.02588	Big Time Step Reading0.01660156
+29.02588	Jogo executando - Esperando jogador escolher
+29.22934	Big Time Step Reading0
+29.22934	Jogo executando - Esperando jogador escolher
+29.36188	Big Time Step Reading0.01660156
+29.36188	Jogo executando - Esperando jogador escolher
+29.37844	Big Time Step Reading0.01660156
+29.37844	Jogo executando - Esperando jogador escolher
+29.75959	Big Time Step Reading0
+29.75959	Jogo executando - Esperando jogador escolher
+29.77605	Big Time Step Reading0
+29.77605	Jogo executando - Esperando jogador escolher
+30.17166	Jogo executando - Escolha certa
+30.61896	Big Time Step Reading0.01660156
+30.61896	Jogo executando - Escolha certa
+30.6521	Big Time Step Reading0.01660156
+30.6521	Jogo executando - Escolha certa
+30.66866	Big Time Step Reading0.01660156
+30.66866	Jogo executando - Escolha certa
+30.8401	Big Time Step Reading0.01660156
+30.8401	Jogo executando - Escolha certa
+31.0389	Big Time Step Reading0.01660156
+31.0389	Jogo executando - Escolha certa
+31.25426	Big Time Step Reading0.01660156
+31.25426	Jogo executando - Turno terminando
+31.27083	Big Time Step Reading0.01660156
+31.27083	Jogo executando - Turno terminando
+31.2874	Big Time Step Reading0.01660156
+31.2874	Jogo executando - Turno terminando
+31.30396	Big Time Step Reading0.01660156
+31.30396	Jogo executando - Turno terminando
+31.32053	Big Time Step Reading0.01660156
+31.32053	Jogo executando - Turno terminando
+31.49132	Big Time Step Reading0
+31.49132	Jogo executando - Turno terminando
+31.67355	Big Time Step Reading0
+31.67355	Jogo executando - Turno terminando
+31.69012	Big Time Step Reading0
+31.69012	Jogo executando - Turno terminando
+31.70668	Big Time Step Reading0.01660156
+31.70668	Jogo executando - Turno terminando
+31.72325	Big Time Step Reading0.01660156
+31.72325	Jogo executando - Turno terminando
+31.87235	Big Time Step Reading0.01660156
+31.87235	Jogo executando - Turno terminando
+32.22545	Big Time Step Reading0.01660156
+32.22545	Jogo executando - Turno terminando
+32.29171	Big Time Step Reading0.01660156
+32.29171	Jogo executando - Turno terminando
+32.32484	Jogo executando - Novo turno
+32.34142	Jogo executando - Esperando jogador ler
+32.36118	Jogo executando - Esperando jogador iniciar
+32.51028	Big Time Step Reading0
+32.51028	Jogo executando - Esperando jogador iniciar
+32.52685	Big Time Step Reading0
+32.52685	Jogo executando - Esperando jogador iniciar
+32.54342	Big Time Step Reading0
+32.54342	Jogo executando - Esperando jogador iniciar
+32.75879	Big Time Step Reading0.01757813
+32.75879	Jogo executando - Esperando jogador iniciar
+32.99659	Big Time Step Reading0.01660156
+32.99659	Jogo executando - Esperando jogador iniciar
+33.01316	Big Time Step Reading0.01660156
+33.01316	Jogo executando - Esperando jogador iniciar
+33.27823	Big Time Step Reading0.01660156
+33.27823	Jogo executando - Esperando jogador iniciar
+33.2948	Big Time Step Reading0.01660156
+33.2948	Jogo executando - Esperando jogador iniciar
+33.31136	Big Time Step Reading0
+33.31136	Jogo executando - Esperando jogador iniciar
+33.52676	Big Time Step Reading0.01660156
+33.52676	Jogo executando - Esperando jogador iniciar
+33.5433	Big Time Step Reading0.01660156
+33.5433	Jogo executando - Esperando jogador iniciar
+33.55986	Big Time Step Reading0.01660156
+33.55986	Jogo executando - Esperando jogador iniciar
+33.57644	Big Time Step Reading0.01660156
+33.57644	Jogo executando - Esperando jogador iniciar
+33.593	Big Time Step Reading0.01660156
+33.593	Jogo executando - Esperando jogador iniciar
+33.96858	Jogo executando - Esperando jogador escolher
+34.11768	Big Time Step Reading0.01660156
+34.11768	Jogo executando - Esperando jogador escolher
+34.1342	Big Time Step Reading0.01660156
+34.1342	Jogo executando - Esperando jogador escolher
+34.15063	Big Time Step Reading0.01660156
+34.15063	Jogo executando - Esperando jogador escolher
+34.16722	Big Time Step Reading0.01660156
+34.16722	Jogo executando - Esperando jogador escolher
+34.18377	Big Time Step Reading0.01660156
+34.18377	Jogo executando - Esperando jogador escolher
+34.20033	Big Time Step Reading0.01660156
+34.20033	Jogo executando - Esperando jogador escolher
+34.2169	Big Time Step Reading0.01660156
+34.2169	Jogo executando - Esperando jogador escolher
+34.28331	Big Time Step Reading0
+34.28331	Jogo executando - Esperando jogador escolher
+34.91884	Big Time Step Reading0.1162109
+34.91884	Jogo executando - Esperando jogador escolher
+34.93541	Big Time Step Reading0.01660156
+34.93541	Jogo executando - Esperando jogador escolher
+35.85091	Big Time Step Reading0.03320313
+35.85091	Jogo executando - Esperando jogador escolher
+35.86742	Big Time Step Reading0
+35.86742	Jogo executando - Esperando jogador escolher
+35.90094	Big Time Step Reading0
+35.90094	Jogo executando - Esperando jogador escolher
+36.06622	Jogo executando - Escolha certa
+36.23746	Big Time Step Reading0.04882813
+36.23746	Jogo executando - Escolha certa
+36.63506	Big Time Step Reading0.01660156
+36.63506	Jogo executando - Escolha certa
+36.65163	Big Time Step Reading0.01660156
+36.65163	Jogo executando - Escolha certa
+36.73452	Big Time Step Reading0
+36.73452	Jogo executando - Escolha certa
+37.15483	Jogo executando - Turno terminando
+37.53586	Big Time Step Reading0
+37.53586	Jogo executando - Turno terminando
+37.7181	Big Time Step Reading0.01660156
+37.7181	Jogo executando - Turno terminando
+38.07133	Big Time Step Reading0
+38.07133	Jogo executando - Turno terminando
+38.22058	Jogo executando - Novo turno
+38.237	Jogo executando - Esperando jogador ler
+38.25883	Jogo executando - Esperando jogador iniciar
+38.34167	Big Time Step Reading0.01660156
+38.34167	Jogo executando - Esperando jogador iniciar
+38.35824	Big Time Step Reading0.01660156
+38.35824	Jogo executando - Esperando jogador iniciar
+38.37481	Big Time Step Reading0.01660156
+38.37481	Jogo executando - Esperando jogador iniciar
+38.39137	Big Time Step Reading0.01660156
+38.39137	Jogo executando - Esperando jogador iniciar
+39.14375	Big Time Step Reading0.01660156
+39.14375	Jogo executando - Esperando jogador iniciar
+39.16007	Big Time Step Reading0.01660156
+39.16007	Jogo executando - Esperando jogador iniciar
+39.17664	Big Time Step Reading0.01660156
+39.17664	Jogo executando - Esperando jogador iniciar
+39.2429	Big Time Step Reading0.01660156
+39.2429	Jogo executando - Esperando jogador iniciar
+39.46947	Big Time Step Reading0.01660156
+39.46947	Jogo executando - Esperando jogador iniciar
+39.85556	Big Time Step Reading0.01660156
+39.85556	Jogo executando - Esperando jogador iniciar
+39.87213	Big Time Step Reading0.01660156
+39.87213	Jogo executando - Esperando jogador iniciar
+39.90529	Big Time Step Reading0.04980469
+39.90529	Jogo executando - Esperando jogador iniciar
+39.95496	Jogo executando - Esperando jogador escolher
+40.18702	Big Time Step Reading0.01660156
+40.18702	Jogo executando - Esperando jogador escolher
+40.2035	Big Time Step Reading0.01660156
+40.2035	Jogo executando - Esperando jogador escolher
+40.22003	Big Time Step Reading0
+40.22003	Jogo executando - Esperando jogador escolher
+40.90463	Big Time Step Reading0.01660156
+40.90463	Jogo executando - Esperando jogador escolher
+41.0703	Big Time Step Reading0.06640625
+41.0703	Jogo executando - Esperando jogador escolher
+41.08687	Big Time Step Reading0.06640625
+41.08687	Jogo executando - Esperando jogador escolher
+41.30738	Big Time Step Reading0
+41.30738	Jogo executando - Esperando jogador escolher
+41.34052	Big Time Step Reading0
+41.34052	Jogo executando - Esperando jogador escolher
+41.35708	Big Time Step Reading0
+41.35708	Jogo executando - Esperando jogador escolher
+41.37365	Big Time Step Reading0.01660156
+41.37365	Jogo executando - Esperando jogador escolher
+41.68842	Big Time Step Reading0.03320313
+41.68842	Jogo executando - Esperando jogador escolher
+41.72155	Big Time Step Reading0.01660156
+41.72155	Jogo executando - Esperando jogador escolher
+41.73812	Big Time Step Reading0.01660156
+41.73812	Jogo executando - Esperando jogador escolher
+41.75468	Big Time Step Reading0.01660156
+41.75468	Jogo executando - Esperando jogador escolher
+41.77125	Big Time Step Reading0
+41.77125	Jogo executando - Esperando jogador escolher
+41.87589	Big Time Step Reading0
+41.87589	Jogo executando - Esperando jogador escolher
+41.89246	Big Time Step Reading0
+41.89246	Jogo executando - Esperando jogador escolher
+41.90902	Big Time Step Reading0
+41.90902	Jogo executando - Esperando jogador escolher
+41.92559	Big Time Step Reading0
+41.92559	Jogo executando - Esperando jogador escolher
+42.04156	Big Time Step Reading0
+42.04156	Jogo executando - Esperando jogador escolher
+42.12439	Big Time Step Reading0.01660156
+42.12439	Jogo executando - Esperando jogador escolher
+42.15753	Big Time Step Reading0.01660156
+42.15753	Jogo executando - Esperando jogador escolher
+42.25693	Big Time Step Reading0
+42.25693	Jogo executando - Esperando jogador escolher
+42.27349	Big Time Step Reading0.01660156
+42.27349	Jogo executando - Escolha certa
+42.4226	Big Time Step Reading0.01660156
+42.4226	Jogo executando - Escolha certa
+42.80873	Big Time Step Reading0.01660156
+42.80873	Jogo executando - Escolha certa
+42.84188	Big Time Step Reading0.01660156
+42.84188	Jogo executando - Escolha certa
+42.85843	Big Time Step Reading0.01660156
+42.85843	Jogo executando - Escolha certa
+42.875	Big Time Step Reading0.01660156
+42.875	Jogo executando - Escolha certa
+42.89156	Big Time Step Reading0.01660156
+42.89156	Jogo executando - Escolha certa
+43.0241	Big Time Step Reading0.01660156
+43.0241	Jogo executando - Escolha certa
+43.23946	Big Time Step Reading0.01660156
+43.23946	Jogo executando - Escolha certa
+43.29821	Big Time Step Reading0
+43.29821	Jogo executando - Escolha certa
+43.3642	Jogo executando - Turno terminando
+43.4139	Big Time Step Reading0.01660156
+43.4139	Jogo executando - Turno terminando
+43.63866	Big Time Step Reading0.01660156
+43.63866	Jogo executando - Turno terminando
+43.67198	Big Time Step Reading0.01660156
+43.67198	Jogo executando - Turno terminando
+43.70493	Big Time Step Reading0
+43.70493	Jogo executando - Turno terminando
+43.72152	Big Time Step Reading0.01660156
+43.72152	Jogo executando - Turno terminando
+43.80433	Big Time Step Reading0.01660156
+43.80433	Jogo executando - Turno terminando
+43.9203	Big Time Step Reading0
+43.9203	Jogo executando - Turno terminando
+44.05727	Big Time Step Reading0.01660156
+44.05727	Jogo executando - Turno terminando
+44.43832	Jogo executando - Novo turno
+44.45505	Jogo executando - Esperando jogador ler
+44.47628	Jogo executando - Esperando jogador iniciar
+44.64195	Big Time Step Reading0.04980469
+44.64195	Jogo executando - Esperando jogador iniciar
+44.6587	Big Time Step Reading0.01660156
+44.6587	Jogo executando - Esperando jogador iniciar
+44.72478	Big Time Step Reading0
+44.72478	Jogo executando - Esperando jogador iniciar
+44.74135	Big Time Step Reading0
+44.74135	Jogo executando - Esperando jogador iniciar
+44.89993	Big Time Step Reading0.01660156
+44.89993	Jogo executando - Esperando jogador iniciar
+44.9165	Big Time Step Reading0.01660156
+44.9165	Jogo executando - Esperando jogador iniciar
+44.94963	Big Time Step Reading0.01660156
+44.94963	Jogo executando - Esperando jogador iniciar
+45.09874	Big Time Step Reading0
+45.09874	Jogo executando - Esperando jogador iniciar
+45.13187	Big Time Step Reading0
+45.13187	Jogo executando - Esperando jogador iniciar
+45.14843	Big Time Step Reading0
+45.14843	Jogo executando - Esperando jogador iniciar
+45.51771	Big Time Step Reading0.02148438
+45.51771	Jogo executando - Esperando jogador iniciar
+45.53428	Big Time Step Reading0.02148438
+45.53428	Jogo executando - Esperando jogador iniciar
+45.55085	Big Time Step Reading0.03320313
+45.55085	Jogo executando - Esperando jogador iniciar
+45.69994	Big Time Step Reading0.01660156
+45.69994	Jogo executando - Esperando jogador iniciar
+46.24665	Big Time Step Reading0
+46.24665	Jogo executando - Esperando jogador iniciar
+46.27979	Jogo executando - Esperando jogador escolher
+46.56855	Big Time Step Reading0
+46.56855	Jogo executando - Esperando jogador escolher
+46.58492	Big Time Step Reading0
+46.58492	Jogo executando - Esperando jogador escolher
+46.60148	Big Time Step Reading0
+46.60148	Jogo executando - Esperando jogador escolher
+46.84998	Big Time Step Reading0.01660156
+46.84998	Jogo executando - Esperando jogador escolher
+46.88311	Big Time Step Reading0.03320313
+46.88311	Jogo executando - Esperando jogador escolher
+46.99908	Big Time Step Reading0
+46.99908	Jogo executando - Esperando jogador escolher
+47.01564	Big Time Step Reading0
+47.01564	Jogo executando - Esperando jogador escolher
+47.22114	Big Time Step Reading0.01660156
+47.22114	Jogo executando - Esperando jogador escolher
+47.23771	Big Time Step Reading0.01660156
+47.23771	Jogo executando - Esperando jogador escolher
+47.25427	Big Time Step Reading0.01660156
+47.25427	Jogo executando - Esperando jogador escolher
+47.27105	Big Time Step Reading0.04980469
+47.27105	Jogo executando - Esperando jogador escolher
+47.73444	Big Time Step Reading0
+47.73444	Jogo executando - Esperando jogador escolher
+47.751	Big Time Step Reading0
+47.751	Jogo executando - Esperando jogador escolher
+47.97384	Jogo executando - Escolha certa
+48.04011	Big Time Step Reading0.01660156
+48.04011	Jogo executando - Escolha certa
+48.05667	Big Time Step Reading0.01660156
+48.05667	Jogo executando - Escolha certa
+48.07324	Big Time Step Reading0.03320313
+48.07324	Jogo executando - Escolha certa
+48.08981	Big Time Step Reading0
+48.08981	Jogo executando - Escolha certa
+48.97314	Big Time Step Reading0.01660156
+48.97314	Jogo executando - Escolha certa
+49.00629	Big Time Step Reading0.01660156
+49.00629	Jogo executando - Escolha certa
+49.02284	Big Time Step Reading0.01660156
+49.02284	Jogo executando - Escolha certa
+49.03941	Big Time Step Reading0.01660156
+49.03941	Jogo executando - Escolha certa
+49.05597	Big Time Step Reading0.01660156
+49.05597	Jogo executando - Turno terminando
+49.15538	Big Time Step Reading0
+49.15538	Jogo executando - Turno terminando
+49.17194	Big Time Step Reading0
+49.17194	Jogo executando - Turno terminando
+49.18851	Big Time Step Reading0.01660156
+49.18851	Jogo executando - Turno terminando
+49.27135	Big Time Step Reading0
+49.27135	Jogo executando - Turno terminando
+49.28791	Big Time Step Reading0
+49.28791	Jogo executando - Turno terminando
+49.30448	Big Time Step Reading0.01660156
+49.30448	Jogo executando - Turno terminando
+49.32105	Big Time Step Reading0.01660156
+49.32105	Jogo executando - Turno terminando
+49.44274	Big Time Step Reading0
+49.44274	Jogo executando - Turno terminando
+49.89005	Big Time Step Reading0.01660156
+49.89005	Jogo executando - Turno terminando
+50.10558	Big Time Step Reading0.01660156
+50.10558	Jogo executando - Turno terminando
+50.12209	Big Time Step Reading0.01660156
+50.12209	Jogo executando - Novo turno
+50.1386	Jogo executando - Esperando jogador ler
+50.17245	Jogo executando - Esperando jogador iniciar
+50.45409	Big Time Step Reading0.01660156
+50.45409	Jogo executando - Esperando jogador iniciar
+50.50378	Big Time Step Reading0.03320313
+50.50378	Jogo executando - Esperando jogador iniciar
+50.70259	Big Time Step Reading0.01660156
+50.70259	Jogo executando - Esperando jogador iniciar
+50.71915	Big Time Step Reading0.01660156
+50.71915	Jogo executando - Esperando jogador iniciar
+50.73572	Big Time Step Reading0.01660156
+50.73572	Jogo executando - Esperando jogador iniciar
+50.83512	Big Time Step Reading0.01660156
+50.83512	Jogo executando - Esperando jogador iniciar
+50.97449	Big Time Step Reading0
+50.97449	Jogo executando - Esperando jogador iniciar
+51.00772	Big Time Step Reading0.01660156
+51.00772	Jogo executando - Esperando jogador iniciar
+51.02423	Big Time Step Reading0
+51.02423	Jogo executando - Esperando jogador iniciar
+51.28926	Big Time Step Reading0.01660156
+51.28926	Jogo executando - Esperando jogador iniciar
+51.53775	Big Time Step Reading0.01660156
+51.53775	Jogo executando - Esperando jogador iniciar
+51.57111	Big Time Step Reading0.01660156
+51.57111	Jogo executando - Esperando jogador iniciar
+51.58745	Big Time Step Reading0.01660156
+51.58745	Jogo executando - Esperando jogador iniciar
+51.69245	Big Time Step Reading0.06640625
+51.69245	Jogo executando - Esperando jogador iniciar
+51.74216	Jogo executando - Esperando jogador escolher
+51.7753	Big Time Step Reading0
+51.7753	Jogo executando - Esperando jogador escolher
+51.80843	Big Time Step Reading0.01660156
+51.80843	Jogo executando - Esperando jogador escolher
+52.04045	Big Time Step Reading0.03320313
+52.04045	Jogo executando - Esperando jogador escolher
+52.05693	Big Time Step Reading0.01660156
+52.05693	Jogo executando - Esperando jogador escolher
+52.09006	Big Time Step Reading0
+52.09006	Jogo executando - Esperando jogador escolher
+52.64352	Big Time Step Reading0
+52.64352	Jogo executando - Esperando jogador escolher
+52.77606	Big Time Step Reading0
+52.77606	Jogo executando - Esperando jogador escolher
+52.89208	Big Time Step Reading0.01660156
+52.89208	Jogo executando - Esperando jogador escolher
+52.9086	Big Time Step Reading0.01660156
+52.9086	Jogo executando - Esperando jogador escolher
+52.92516	Big Time Step Reading0.01660156
+52.92516	Jogo executando - Esperando jogador escolher
+53.008	Big Time Step Reading0
+53.008	Jogo executando - Esperando jogador escolher
+53.07427	Big Time Step Reading0
+53.07427	Jogo executando - Esperando jogador escolher
+53.1074	Big Time Step Reading0
+53.1074	Jogo executando - Esperando jogador escolher
+53.22949	Big Time Step Reading0
+53.22949	Jogo executando - Esperando jogador escolher
+53.31233	Big Time Step Reading0.01660156
+53.31233	Jogo executando - Esperando jogador escolher
+53.3289	Big Time Step Reading0.01660156
+53.3289	Jogo executando - Esperando jogador escolher
+53.5774	Big Time Step Reading0.01757813
+53.5774	Jogo executando - Esperando jogador escolher
+53.70993	Big Time Step Reading0.03320313
+53.70993	Jogo executando - Esperando jogador escolher
+54.02953	Big Time Step Reading0.01660156
+54.02953	Jogo executando - Esperando jogador escolher
+54.06266	Big Time Step Reading0.01660156
+54.06266	Jogo executando - Esperando jogador escolher
+54.17898	Jogo executando - Escolha certa
+54.29459	Big Time Step Reading0
+54.29459	Jogo executando - Escolha certa
+54.31116	Big Time Step Reading0
+54.31116	Jogo executando - Escolha certa
+54.3443	Big Time Step Reading0.01660156
+54.3443	Jogo executando - Escolha certa
+54.67564	Big Time Step Reading0.01660156
+54.67564	Jogo executando - Escolha certa
+54.70876	Big Time Step Reading0.01660156
+54.70876	Jogo executando - Escolha certa
+54.78181	Big Time Step Reading0.01660156
+54.78181	Jogo executando - Escolha certa
+54.83152	Big Time Step Reading0.01660156
+54.83152	Jogo executando - Escolha certa
+54.86465	Big Time Step Reading0.01660156
+54.86465	Jogo executando - Escolha certa
+55.03032	Big Time Step Reading0.03320313
+55.03032	Jogo executando - Escolha certa
+55.06345	Big Time Step Reading0
+55.06345	Jogo executando - Escolha certa
+55.14629	Big Time Step Reading0
+55.14629	Jogo executando - Escolha certa
+55.17942	Big Time Step Reading0
+55.17942	Jogo executando - Escolha certa
+55.19599	Big Time Step Reading0.01660156
+55.19599	Jogo executando - Escolha certa
+55.21255	Big Time Step Reading0.01660156
+55.21255	Jogo executando - Escolha certa
+55.22912	Big Time Step Reading0.01660156
+55.22912	Jogo executando - Escolha certa
+55.26225	Jogo executando - Turno terminando
+55.66558	Big Time Step Reading0.01660156
+55.66558	Jogo executando - Turno terminando
+55.68214	Big Time Step Reading0.01660156
+55.68214	Jogo executando - Turno terminando
+55.69871	Big Time Step Reading0.01660156
+55.69871	Jogo executando - Turno terminando
+55.71527	Big Time Step Reading0.01660156
+55.71527	Jogo executando - Turno terminando
+55.88094	Big Time Step Reading0.03320313
+55.88094	Jogo executando - Turno terminando
+55.9969	Big Time Step Reading0
+55.9969	Jogo executando - Turno terminando
+56.0963	Big Time Step Reading0.01660156
+56.0963	Jogo executando - Turno terminando
+56.11287	Big Time Step Reading0.01660156
+56.11287	Jogo executando - Turno terminando
+56.23798	Big Time Step Reading0
+56.23798	Jogo executando - Turno terminando
+56.25455	Big Time Step Reading0
+56.25455	Jogo executando - Turno terminando
+56.27112	Big Time Step Reading0
+56.27112	Jogo executando - Turno terminando
+56.28768	Big Time Step Reading0.01660156
+56.28768	Jogo executando - Turno terminando
+56.33738	Jogo executando - Novo turno
+56.35395	Jogo executando - Esperando jogador ler
+56.37465	Jogo executando - Esperando jogador iniciar
+56.42435	Big Time Step Reading0
+56.42435	Jogo executando - Esperando jogador iniciar
+56.47406	Big Time Step Reading0
+56.47406	Jogo executando - Esperando jogador iniciar
+56.50719	Big Time Step Reading0.01660156
+56.50719	Jogo executando - Esperando jogador iniciar
+56.57345	Big Time Step Reading0
+56.57345	Jogo executando - Esperando jogador iniciar
+56.68943	Big Time Step Reading0
+56.68943	Jogo executando - Esperando jogador iniciar
+56.94343	Big Time Step Reading0.03320313
+56.94343	Jogo executando - Esperando jogador iniciar
+57.10909	Big Time Step Reading0.01660156
+57.10909	Jogo executando - Esperando jogador iniciar
+57.17537	Big Time Step Reading0.01660156
+57.17537	Jogo executando - Esperando jogador iniciar
+57.34121	Big Time Step Reading0
+57.34121	Jogo executando - Esperando jogador iniciar
+57.35772	Big Time Step Reading0
+57.35772	Jogo executando - Esperando jogador iniciar
+57.61293	Big Time Step Reading0
+57.61293	Jogo executando - Esperando jogador iniciar
+57.6295	Big Time Step Reading0
+57.6295	Jogo executando - Esperando jogador iniciar
+57.64606	Big Time Step Reading0
+57.64606	Jogo executando - Esperando jogador iniciar
+57.86157	Jogo executando - Esperando jogador escolher
+58.09336	Big Time Step Reading0.01660156
+58.09336	Jogo executando - Esperando jogador escolher
+58.14307	Big Time Step Reading0
+58.14307	Jogo executando - Esperando jogador escolher
+58.65166	Big Time Step Reading0.08203125
+58.65166	Jogo executando - Esperando jogador escolher
+58.90031	Big Time Step Reading0.01660156
+58.90031	Jogo executando - Esperando jogador escolher
+58.93329	Big Time Step Reading0.01660156
+58.93329	Jogo executando - Esperando jogador escolher
+58.94986	Big Time Step Reading0
+58.94986	Jogo executando - Esperando jogador escolher
+59.62233	Jogo executando - Escolha certa
+59.87228	Big Time Step Reading0.01757813
+59.87228	Jogo executando - Escolha certa
+60.52339	Big Time Step Reading0
+60.52339	Jogo executando - Escolha certa
+60.70562	Jogo executando - Turno terminando
+60.82159	Big Time Step Reading0.01660156
+60.82159	Jogo executando - Turno terminando
+60.87129	Big Time Step Reading0.01660156
+60.87129	Jogo executando - Turno terminando
+61.21246	Big Time Step Reading0.01660156
+61.21246	Jogo executando - Turno terminando
+61.22902	Big Time Step Reading0.01660156
+61.22902	Jogo executando - Turno terminando
+61.24559	Big Time Step Reading0.01660156
+61.24559	Jogo executando - Turno terminando
+61.26216	Big Time Step Reading0.01660156
+61.26216	Jogo executando - Turno terminando
+61.279	Big Time Step Reading0.03320313
+61.279	Jogo executando - Turno terminando
+61.345	Big Time Step Reading0
+61.345	Jogo executando - Turno terminando
+61.47754	Big Time Step Reading0.01660156
+61.47754	Jogo executando - Turno terminando
+61.51068	Big Time Step Reading0.01660156
+61.51068	Jogo executando - Turno terminando
+61.5438	Big Time Step Reading0
+61.5438	Jogo executando - Turno terminando
+61.56036	Big Time Step Reading0.01660156
+61.56036	Jogo executando - Turno terminando
