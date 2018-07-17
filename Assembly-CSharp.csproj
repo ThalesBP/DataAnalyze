@@ -129,6 +129,7 @@
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - CountSuits - 7 - 17-10-31 16-12-09 - GameMessage.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Movements.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - Memory - 7 - 17-10-31 14-26-19 - Choices.txt" />
+    <None Include="Assets\Choices\RadialAverageTime.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - Memory - 6 - 17-10-31 14-25-16 - GameMessage.txt" />
     <None Include="Assets\Choices\Gustavo\Gustavo - Pé direito - Basic - 5 - 17-10-31 09-37-16 - Movements.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - MultiSuits - 3 - 17-10-31 14-28-35 - Choices.txt" />
@@ -145,6 +146,7 @@
     <None Include="Assets\Choices\Gustavo\Gustavo - Pé direito - CountSuits - 6 - 17-10-31 09-57-31 - GameMessage.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Basic - 5 - 17-10-31 15-50-41 - Movements.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - CountSuits - 3 - 17-10-31 14-34-52 - Movements.txt" />
+    <None Include="Assets\Choices\Leonardo - BorderLine.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Basic - 7 - 17-10-31 15-52-42 - Movements.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - Memory - 3 - 17-10-31 14-22-05 - GameMessage.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - CountSuits - 7 - 17-10-31 16-12-09 - Movements.txt" />
@@ -220,6 +222,7 @@
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - Basic - 3 - 17-10-31 14-15-45 - Choices.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - MultiSuits - 7 - 17-10-31 16-05-29 - Movements.txt" />
     <None Include="Assets\Choices\Guilherme\Guilherme - Pé direito - CountSuits - 5 - 17-10-31 14-37-05 - Movements.txt" />
+    <None Include="Assets\Choices\RadialMistakes.txt" />
     <None Include="Assets\Choices\Gustavo\Gustavo - Pé direito - MultiSuits - 3 - 17-10-31 09-48-03 - Movements.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Memory - 7 - 17-10-31 15-59-12 - Movements.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Memory - 6 - 17-10-31 15-58-06 - GameMessage.txt" />
