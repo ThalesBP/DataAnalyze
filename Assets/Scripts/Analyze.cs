@@ -2180,7 +2180,7 @@ public class Analyze : MonoBehaviour {
                 }
                 break;
                 #endregion
-                #region Borderline
+            #region Borderline
             case Modes.BorderLines:
                 playerNames = new List<string>();
                 choices = new List<Choice>();

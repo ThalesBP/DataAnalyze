@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.IO;
+using System.Text;
 
-public class InterfaceManager : MonoBehaviour {
+public class InterfaceManager : Analyze {
 
     public GameObject templateToggle;
     public GameObject toggleParent;
-  //  public GameObject templateButton;
-//    public GameObject buttonParent;
 
-	// Use this for initialization
-	void Start () {
+  /*  public string playerName;
+    private string[] movementsText;*/
+  
 
-         
-        for (int n = 0; n<20; n++)
+    // Use this for initialization
+    void Start () {
+
+      
+        for (int n = 0; n< 6; n++)
         {
-            GameObject buttonAux;
+            
             GameObject toggleAux;
             Text textAux;
                      
             toggleAux = Instantiate(templateToggle, toggleParent.transform);
-            toggleAux.name = "Pacient_" + (n + 1).ToString();
-
-         //   buttonAux = Instantiate(templateButton, buttonParent.transform);
+            toggleAux.name = "Pacient_" + (n + 1).ToString() ;
 
             textAux = toggleAux.GetComponentInChildren<Text>();
             textAux.text = "Pacient_" + (n + 1).ToString();
         }
-	}
+
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
