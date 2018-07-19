@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class InfoButton : MonoBehaviour {
     public string playerName;
 
+    public InterfaceManager interfaceManager;
+
     [SerializeField]
     private Button infoButton;
 
@@ -23,5 +25,6 @@ public class InfoButton : MonoBehaviour {
     void ShowInfo()
     {
         Debug.Log(playerName);
+        interfaceManager.infoBox.text = playerName;
     }
 }

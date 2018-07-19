@@ -15,7 +15,7 @@ public class InterfaceManager : MonoBehaviour
 
     public InterfaceManager interfaceManager;
 
-    public Button buttonAux;
+    public InputField infoBox;
 
     private string[] playersText;
 
@@ -29,26 +29,25 @@ public class InterfaceManager : MonoBehaviour
             
             GameObject toggleAux;
             Text textAux;
-            InfoButton infoButtonAux;          
-                 
+            InfoButton infoButtonAux;
+            Button buttonAux;
+
             toggleAux = Instantiate(templateToggle, toggleParent.transform);
             toggleAux.name =  playersText[n]  ;
-
-            buttonAux = toggleAux.GetComponentInChildren<Button>();
-            buttonAux.name = "Button_" + playersText[n];
 
             textAux = toggleAux.GetComponentInChildren<Text>();
             textAux.text =  playersText[n];
 
+            buttonAux = toggleAux.GetComponentInChildren<Button>();
+            buttonAux.name = "Button_" + playersText[n];
+
             infoButtonAux = toggleAux.GetComponent<InfoButton>();
             infoButtonAux.playerName = playersText[n];
-    
+            infoButtonAux.interfaceManager = this;
+     
         }
 
-       /* if (interfaceManager.buttonAux.IsActive())
-        {
-            
-        }*/
+ 
     }
 	
 	// Update is called once per frame

@@ -9,7 +9,6 @@ using System.Text;
 public class Functions : MonoBehaviour {
 
 
-
     public void PersonAnalyze(string playerName)
     {
         // Player's movements variables
@@ -24,6 +23,9 @@ public class Functions : MonoBehaviour {
 
         // Initialize borderline variable with a defined resolution
         borderLine = new Vector2[36];
+
+        
+        min = max = center = bases = Vector2.zero;
 
         // Writes a abstract about player's movement [OBS: MOVE CODE TO THE END?]
         File.WriteAllText(Application.dataPath + "/" + playerName + " - BorderLine.txt",
