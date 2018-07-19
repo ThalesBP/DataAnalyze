@@ -13,14 +13,25 @@ public class InterfaceManager : MonoBehaviour
     public GameObject templateToggle;
     public GameObject toggleParent;
 
-    public InterfaceManager interfaceManager;
-
     public InputField infoBox;
 
     private string[] playersText;
 
+    public List<Toggle> playerToggles;
+
+    public Button dataButton;
+
+
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        dataButton.onClick.AddListener(delegate
+        {
+            ShowData();
+        });
+
+        playerToggles = new List<Toggle>();
+
         playersText = File.ReadAllLines(Application.dataPath + "/Choices/Players.txt", Encoding.UTF8);
         Debug.Log(playersText.Length);
       
@@ -31,7 +42,7 @@ public class InterfaceManager : MonoBehaviour
             Text textAux;
             InfoButton infoButtonAux;
             Button buttonAux;
-
+   
             toggleAux = Instantiate(templateToggle, toggleParent.transform);
             toggleAux.name =  playersText[n]  ;
 
@@ -44,14 +55,34 @@ public class InterfaceManager : MonoBehaviour
             infoButtonAux = toggleAux.GetComponent<InfoButton>();
             infoButtonAux.playerName = playersText[n];
             infoButtonAux.interfaceManager = this;
-     
+
+            playerToggles.Add(toggleAux.GetComponent<Toggle>());
+
         }
 
- 
+       
     }
 	
+     void ShowData()
+     {
+            string output = "";
+
+            foreach (Toggle player in playerToggles)
+            {
+                if (player.isOn)
+                {
+                    Debug.Log(player.gameObject.name);
+                    output = output + player.gameObject.name + Environment.NewLine;
+
+                }
+                infoBox.text = output;
+            }
+
+     }
+   
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 }

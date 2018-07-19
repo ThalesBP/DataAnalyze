@@ -61,12 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DadosButton.cs" />
     <Compile Include="Assets\Scripts\Analyze.cs" />
     <Compile Include="Assets\Scripts\Choice.cs" />
     <Compile Include="Assets\Scripts\Functions.cs" />
     <Compile Include="Assets\Scripts\InfoButton.cs" />
     <Compile Include="Assets\Scripts\InterfaceManager.cs" />
-    <Compile Include="Assets\TextInput.cs" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - CountSuits - 5 - 17-10-31 16-10-02 - Movements.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - MultiSuits - 3 - 17-10-31 16-01-18 - Choices.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Memory - 4 - 17-10-31 15-55-55 - Movements.txt" />
