@@ -34,7 +34,9 @@ public class InterfaceManager : MonoBehaviour
 
         playersText = File.ReadAllLines(Application.dataPath + "/Choices/Players.txt", Encoding.UTF8);
         Debug.Log(playersText.Length);
-      
+
+        
+
         for (int n = 0; n< playersText.Length; n++)
         {
             
@@ -66,18 +68,15 @@ public class InterfaceManager : MonoBehaviour
      void ShowData()
      {
             string output = "";
-
             foreach (Toggle player in playerToggles)
             {
                 if (player.isOn)
                 {
                     Debug.Log(player.gameObject.name);
                     output = output + player.gameObject.name + Environment.NewLine;
-
                 }
                 infoBox.text = output;
             }
-
      }
    
 	// Update is called once per frame

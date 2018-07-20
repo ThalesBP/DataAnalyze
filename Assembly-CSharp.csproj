@@ -67,6 +67,14 @@
     <Compile Include="Assets\Scripts\Functions.cs" />
     <Compile Include="Assets\Scripts\InfoButton.cs" />
     <Compile Include="Assets\Scripts\InterfaceManager.cs" />
+    <Compile Include="Assets\TSTableView\Examples\DynamicCellHeight\DynamicHeightCell.cs" />
+    <Compile Include="Assets\TSTableView\Examples\DynamicCellHeight\DynamicHeightTableViewController.cs" />
+    <Compile Include="Assets\TSTableView\Examples\Simple\ScrollingEventsHandler.cs" />
+    <Compile Include="Assets\TSTableView\Examples\Simple\SimpleTableViewController.cs" />
+    <Compile Include="Assets\TSTableView\Examples\Simple\VisibleCounterCell.cs" />
+    <Compile Include="Assets\TSTableView\ITableViewDataSource.cs" />
+    <Compile Include="Assets\TSTableView\TableView.cs" />
+    <Compile Include="Assets\TSTableView\TableViewCell.cs" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - CountSuits - 5 - 17-10-31 16-10-02 - Movements.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - MultiSuits - 3 - 17-10-31 16-01-18 - Choices.txt" />
     <None Include="Assets\Choices\Henrique Garcia\Henrique Garcia - Pé direito - Memory - 4 - 17-10-31 15-55-55 - Movements.txt" />
