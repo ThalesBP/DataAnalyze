@@ -8,59 +8,45 @@ using System.Text;
 
 public class Functions : MonoBehaviour {
 
+    readonly char tab = Convert.ToChar("\t");
 
     public void PersonAnalyze(string playerName)
     {
         // Player's movements variables
         Vector2[] movements;
         Vector2[] borderLine;
-        char tab = Convert.ToChar("\t");
         
         // Movement space variables (ellipse parameters)
         Vector2 min, max;
         Vector2 center, bases;
-        Vector2 polar, offset;
 
-        // Initialize borderline variable with a defined resolution
-        borderLine = new Vector2[36];
+        // Merges all player's movement
+        MergeMovements(playerName);
 
-        
-        min = max = center = bases = Vector2.zero;
+        // Reads all player's movement into array of Vector2
+        movements = ReadMovements(playerName, out min, out max);
 
-        // Writes a abstract about player's movement [OBS: MOVE CODE TO THE END?]
-        File.WriteAllText(Application.dataPath + "/" + playerName + " - BorderLine.txt",
-            "Border Registred" + "\t" +
-            Environment.NewLine +
-            "X min" + "\t" +
-            "Y min" + "\t" +
-            "X max" + "\t" +
-            "Y max" + "\t" +
-            Environment.NewLine +
-            min.x + "\t" +
-            min.y + "\t" +
-            max.x + "\t" +
-            max.y + "\t" +
-            Environment.NewLine +
-            "X center" + "\t" +
-            "Y center" + "\t" +
-            "X bases" + "\t" +
-            "Y bases" + "\t" +
-            Environment.NewLine +
-            center.x + "\t" +
-            center.y + "\t" +
-            bases.x + "\t" +
-            bases.y + "\t" +
-            Environment.NewLine +
-            Environment.NewLine
-            , Encoding.UTF8);
+        // Find borderline of all movements
+        borderLine = DefineBorderline(movements, min, max, 36);
 
-        File.WriteAllText(Application.dataPath + "/" + playerName + " - Movements.txt",
-            "",
-            Encoding.UTF8);
+        // Creates Borderline File for the player
+        CreateBorderlineFile(playerName, borderLine, min, max);
+    }
 
+    /// <summary>
+    /// Merges all player's movement into a Movements.txt file
+    /// </summary>
+    /// <param name="playerName">Player's name</param>
+    void MergeMovements(string playerName)
+    {
         // Reads player's historic game
         string[] matchesText = File.ReadAllLines(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - Historic.txt", Encoding.UTF8);
         Debug.Log("Historic Size: " + matchesText.Length);
+
+        // Reset movement file
+        File.WriteAllText(Application.dataPath + "/" + playerName + " - Movements.txt",
+            "",
+            Encoding.UTF8);
 
         // For each match does...
         for (int i = 2; i < matchesText.Length; i++)
@@ -70,9 +56,9 @@ public class Functions : MonoBehaviour {
 
             // Verifies if the movement file exists
             if (File.Exists(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - " + matchData[2] + " - " + matchData[1] + " - " + matchData[0] + " - Movements.txt"))
-            {   
-            // Case movement file exists for this match
-                
+            {
+                // Case movement file exists for this match
+
                 // Reads player's movements for this match
                 string[] movementLines = File.ReadAllLines(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - " + matchData[2] + " - " + matchData[1] + " - " + matchData[0] + " - Movements.txt", Encoding.UTF8);
 
@@ -87,21 +73,31 @@ public class Functions : MonoBehaviour {
             }
             else
             {
-            // Case movement file does NOT exist for this match
+                // Case movement file does NOT exist for this match
                 // Reports it
                 Debug.Log(playerName + " - " + matchData[2] + " - " + matchData[1] + " - " + matchData[0] + " - Choices.txt was not found");
             }
         }
+    }
 
+    /// <summary>
+    /// Reads player's Movement.txt file and convert into array of Vector2
+    /// </summary>
+    /// <param name="playerName">Player's name</param>
+    /// <param name="min">Min movements</param>
+    /// <param name="max">Max movements</param>
+    /// <returns></returns>
+    Vector2[] ReadMovements(string playerName, out Vector2 min, out Vector2 max)
+    {
         // Reads all player's movements from file just written
         string[] movementsText = File.ReadAllLines(Application.dataPath + "/" + playerName + " - Movements.txt", Encoding.UTF8);
 
         // Initialize movement vector with file size (less header)
-        movements = new Vector2[movementsText.Length - 1];
+        Vector2[] movements = new Vector2[movementsText.Length - 1];
 
         // Reset movement space variables
-        min = max = center = bases = Vector2.zero;
-        
+        min = max = Vector2.zero;
+
         // For each player's movement (less header)
         for (int i = 1; i < movementsText.Length; i++)
         {
@@ -130,15 +126,67 @@ public class Functions : MonoBehaviour {
                 Debug.Log(e);
             }
         }
-        // movementsText = new string[0]; // OBS: Verify if it is necessary
 
+        return movements;
+    }
+
+    /// <summary>
+    /// Defines Borderline based in all movement and min and max of them
+    /// </summary>
+    /// <param name="movements">All movements</param>
+    /// <param name="min">Min of movements</param>
+    /// <param name="max">Max of movements</param>
+    /// <param name="resolution">Resolution of final borderline</param>
+    /// <returns></returns>
+    Vector2[] DefineBorderline(Vector2[] movements, Vector2 min, Vector2 max, int resolution)
+    {
         // Parametrize ellipse (Function 5.7 in dissertation)
-        center = (max + min) / 2f;
-        bases = (max - min) / 2f;
+        Vector2 polar, offset;
+        Vector2 center = (max + min) / 2f;
+        Vector2 bases = (max - min) / 2f;
+        Vector2[] borderLine = new Vector2[resolution];
 
         // Centralize all borderline at ellipse center
         for (int i = 0; i < borderLine.Length; i++)
             borderLine[i] = center;
+
+        // For each movement vector...
+        for (int i = 0; i < movements.Length; i++)
+        {
+            // Calculates offset movement from ellipse center
+            offset = movements[i] - center;
+
+            // Calculates polar coordinate alpha of this offset
+            float ang = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+
+            // Adjust angle between 0 (included) and 360 (excluded) degrees 
+            while (ang < 0f)
+                ang += 360f;
+
+            // Rounds polar coordinate alpha to borderline resolution (36 elements)
+            int i_ang = Mathf.RoundToInt(ang / (360f / (float)resolution));
+
+            // Adjust index between 0 (included) and 36 (excluded) degrees 
+            if (i_ang >= resolution)
+                i_ang -= resolution;
+            if (i_ang < 0)
+                i_ang += resolution;
+
+            // Defines offset polar coordinate r is greater than current borderline
+            polar = new Vector2(offset.magnitude, ang);
+
+            // Verifies if 
+            if (polar.x > borderLine[i_ang].x)
+                borderLine[i_ang] = polar;
+        }
+
+        return borderLine;
+    }
+
+    void CreateBorderlineFile(string playerName, Vector2[] borderLine, Vector2 min, Vector2 max)
+    {
+        Vector2 center = (max + min) / 2f;
+        Vector2 bases = (max - min) / 2f;
 
         // Writes borderline header (OBS: Improve writers)
         File.AppendAllText(Application.dataPath + "/" + playerName + " - BorderLine.txt",
@@ -166,38 +214,6 @@ public class Functions : MonoBehaviour {
             Environment.NewLine +
             Environment.NewLine
             , Encoding.UTF8);
-
-        // For each movement vector...
-        for (int i = 0; i < movements.Length; i++)
-        {
-            // Calculates offset movement from ellipse center
-            offset = movements[i] - center;
-
-            // Calculates polar coordinate alpha of this offset
-            float ang = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-
-            // Adjust angle between 0 (included) and 360 (excluded) degrees 
-            while (ang < 0f)
-                ang += 360f;
-
-            // Rounds polar coordinate alpha to borderline resolution (36 elements)
-            int i_ang = Mathf.RoundToInt(ang / 10f);
-
-            // Adjust index between 0 (included) and 36 (excluded) degrees 
-            if (i_ang >= 36)
-                i_ang -= 36;
-            if (i_ang < 0)
-                i_ang += 36;
-
-            // Defines offset polar coordinate r is greater than current borderline
-            polar = new Vector2(offset.magnitude, ang);
-
-            // Verifies if 
-            if (polar.x > borderLine[i_ang].x)
-                borderLine[i_ang] = polar;
-        }
-
-        // movements = new Vector2[0]; // OBS: Verify if is necessary
 
         // For each borderline angle (resolution)...
         for (int i = 0; i < borderLine.Length; i++)
