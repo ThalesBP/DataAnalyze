@@ -9,6 +9,7 @@ using System.Text;
 public class Functions : MonoBehaviour {
 
     readonly char tab = Convert.ToChar("\t");
+    readonly int borderlineResolution = 36;
 
     public void PersonAnalyze(string playerName)
     {
@@ -18,7 +19,6 @@ public class Functions : MonoBehaviour {
         
         // Movement space variables (ellipse parameters)
         Vector2 min, max;
-        Vector2 center, bases;
 
         // Merges all player's movement
         MergeMovements(playerName);
@@ -27,7 +27,7 @@ public class Functions : MonoBehaviour {
         movements = ReadMovements(playerName, out min, out max);
 
         // Find borderline of all movements
-        borderLine = DefineBorderline(movements, min, max, 36);
+        borderLine = DefineBorderline(movements, min, max, borderlineResolution);
 
         // Creates Borderline File for the player
         CreateBorderlineFile(playerName, borderLine, min, max);
