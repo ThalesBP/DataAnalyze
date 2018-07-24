@@ -68,6 +68,8 @@ public class Choice {
         choice = new List<Card>();
         objective = new List<Card>();
         cardMatch = new List<Card>();
+
+        // Parametrize the resolution (array size)
         package = new float[36];
         elipse = new float[36];
         averageTime = new float[36];
