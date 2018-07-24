@@ -13,7 +13,7 @@ public class InterfaceManager : MonoBehaviour
     public GameObject templateToggle;
     public GameObject toggleParent;
 
-    public InputField infoBox;
+    public Text infoBox;
 
     private string[] playersText;
 
