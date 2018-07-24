@@ -41,7 +41,7 @@ public class InfoButton : MonoBehaviour {
         {   
 
             string[] lineColumns = historicLines[n].Split(tab);
-            output = output + lineColumns[1] + "|" + lineColumns[4] + "|" + lineColumns[9] + "|" + lineColumns[12] + "|" + lineColumns[15] + " |" + Environment.NewLine;
+            output = output + lineColumns[1] + " | " + lineColumns[4] + "|" + lineColumns[9] + "|" + lineColumns[12] + "|" + lineColumns[15] + " |" + Environment.NewLine;
         }
         
         interfaceManager.infoBox.text = output;
