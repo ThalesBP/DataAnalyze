@@ -32,7 +32,11 @@ public class InfoButton : MonoBehaviour {
     {
         tab = Convert.ToChar("\t");
         string[] historicLines;
-        string output = "";
+        string output1 = "";
+        string output2 = "";
+        string output3 = "";
+        string output4 = "";
+        string output5 = "";
 
         historicLines = File.ReadAllLines(Application.dataPath + "/Choices/" + playerName + "/" + playerName + " - Historic.txt", Encoding.UTF8);
         Debug.Log("Historic Size: " + historicLines.Length);
@@ -41,10 +45,19 @@ public class InfoButton : MonoBehaviour {
         {   
 
             string[] lineColumns = historicLines[n].Split(tab);
-            output = output + lineColumns[1] + " | " + lineColumns[4] + "|" + lineColumns[9] + "|" + lineColumns[12] + "|" + lineColumns[15] + " |" + Environment.NewLine;
+            output1 = output1 + lineColumns[1] + Environment.NewLine;
+            output2 = output2 + lineColumns[4] + Environment.NewLine;
+            output3 = output3 + lineColumns[9] + Environment.NewLine;
+            output4 = output4 + lineColumns[12] + Environment.NewLine;
+            output5 = output5 + lineColumns[15] + Environment.NewLine;
+            interfaceManager.infoBox.text = "";
         }
-        
-        interfaceManager.infoBox.text = output;
+        interfaceManager.infoBoxColumn1.text = output1;
+        interfaceManager.infoBoxColumn2.text = output2;
+        interfaceManager.infoBoxColumn3.text = output3;
+        interfaceManager.infoBoxColumn4.text = output4;
+        interfaceManager.infoBoxColumn5.text = output5;
+
         Debug.Log(playerName);
         
     }

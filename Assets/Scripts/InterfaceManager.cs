@@ -15,6 +15,12 @@ public class InterfaceManager : MonoBehaviour
 
     public Text infoBox;
 
+    public Text infoBoxColumn1;
+    public Text infoBoxColumn2;
+    public Text infoBoxColumn3;
+    public Text infoBoxColumn4;
+    public Text infoBoxColumn5;
+
     private string[] playersText;
 
     public List<Toggle> playerToggles;
@@ -28,6 +34,11 @@ public class InterfaceManager : MonoBehaviour
         dataButton.onClick.AddListener(delegate
         {
             ShowData();
+            infoBoxColumn1.text = "";
+            infoBoxColumn2.text = "";
+            infoBoxColumn3.text = "";
+            infoBoxColumn4.text = "";
+            infoBoxColumn5.text = "";
         });
 
         playerToggles = new List<Toggle>();
